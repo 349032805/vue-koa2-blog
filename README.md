@@ -1,26 +1,11 @@
 ﻿# 个人博客设计（未完待续）
------------- 
-## 博客前台
-### 导航
-* 首页
-* 归档
-* 个人
-* 跳转到github的图标
---------------------
-## 博客管理平台
 
-### 功能列表
-
-登录：利用jwt认证，登录有效时间为2个小时，可登出
-文章：添加文章，文章列表展示（可以对文章进行修改和删除）
-标签：添加标签、删除标签、修改标签
-
-## server
+## server(正在写server端,README.md我会慢慢补充)
 
 ### 目录划分
 
 * app.js
-* conf
+* configs
  * config.js
 * controllers
 * models
@@ -30,47 +15,7 @@
 
 
 ### 数据库设计
-```javascript
-//文章表&&草稿表
-let post = new Schema({
-  title: String,
-  visits: {
-    type: Number,
-    default: 0
-  },
-  tags: [{
-    type: Schema.Types.ObjectId,
-    ref: 'tag'
-  }],
-  createTime: {
-    type: Date
-  },
-  lastEditTime: {
-    type: Date,
-    default: Date.now
-  },
-  hidden: Boolean,
-  excerpt: String,
-  content: String
-})
-//分类表
-let category = new Schema({
-  name: String,
-  pathName: String
-})
-//标签表
-let tag = new Schema({
-  name: String,
-  pathName: String
-})
-//用户表
-let user = new Schema({
-  name: String,
-  displayName: String,
-  password: String,
-  email: String
-})
-```
+
 ### api设计
 
 服务器直接允许对user模型外的所有模型的GET请求
@@ -111,25 +56,10 @@ xxx
 ##### 删除：body为{ id: _id }
 > DELETE /api/:modelName/:id
 
-
-
-
 ### store设计
 
 ### config.js配置
-```javascript
-const env = process.env
-module.exports = {
-  serverPort: env.serverPort || 3000,
-  mongoHost: env.mongoHost || '127.0.0.1',
-  mongoDatabase: env.mongoDatabase || 'blog',
-  mongoPort: env.mongoPort || 27017,
-  tokenSecret: env.tokenSecret || 'test',
-  tokenExpiresIn: env.tokenExpiresIn || 3600,
-  defaultAdminName: env.defaultAdminName || 'admin',
-  defaultAdminPassword: env.defaultAdminPassword || 'admin'
-}
-```
+
 
 
 
