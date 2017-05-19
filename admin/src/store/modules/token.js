@@ -5,13 +5,13 @@ const state = {
 };
 
 const mutations = {
-    [types.TOKEN_CREATE]({ token }, val){  //解构赋值
+    [types.TOKEN_CREATE]: ({ token }, val) => {
         token = val;
-        window.sessionStorage.setItem('token') = val;
+        sessionStorage.setItem('token', val);
     },
-    [types.TOKEN_DELETE]({ token }){
+    [types.TOKEN_DELETE]: ({ token }) => {
         token = null;
-        window.sessionStorage.removeItem('token');
+        sessionStorage.removeItem('token');
     }
 };
 

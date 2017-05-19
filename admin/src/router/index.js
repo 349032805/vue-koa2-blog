@@ -4,8 +4,8 @@ import Router from 'vue-router'
 Vue.use(Router);
 
 //路由懒加载
-const Admin = resolve => require(['@/components/Admin/Admin'], resolve);
-const Login = resolve => require(['@/components/Login/Login'], resolve);
+const Admin = resolve => require(['components/Admin/Admin'], resolve);
+const Login = resolve => require(['components/Login/Login'], resolve);
 
 const router = new Router({
   mode: 'history',
