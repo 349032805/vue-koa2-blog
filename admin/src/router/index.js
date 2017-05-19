@@ -1,15 +1,46 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
 
-Vue.use(Router)
+Vue.use(Router);
 
-export default new Router({
+//路由懒加载
+const Admin = resolve => require(['@/components/Admin/Admin'], resolve);
+const Login = resolve => require(['@/components/Login/Login'], resolve);
+
+const router = new Router({
+  mode: 'history',
   routes: [
     {
-      path: '/',
-      name: 'Hello',
-      component: Hello
+      path: '/admin',
+      component: Admin,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/admin/login',
+      component: Login
+    },
+    {
+      path: '*',
+      redirect:  '/admin/login'
     }
   ]
-})
+});
+
+//在全局导航钩子中检查 meta 字段
+router.beforeEach((to, from, next) => {
+  if(to.meta.requiresAuth){
+    if(false){    //vuexY
+
+    }
+    next({
+      path: '/admin/login',
+      query: { redirect: to.fullPath }
+    })
+  }else{
+    next();
+  }
+});
+
+export default router;
