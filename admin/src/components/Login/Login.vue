@@ -2,18 +2,18 @@
     <div id="aaa">
         login sinner 77 hahhaah 
         <p>哈哈哈</p>
-        h1  
+        <v-loading type="video"></v-loading>
     </div>
 </template>
 
 <script>
+import Loading from '../Loading/Loading'
 export default {
-
+    components: {
+        'v-loading': Loading
+    }
 }
 </script>
 
 <style scoped lang="stylus">
-    #aaa
-        font-size: 20px
-        background: blue
 </style>
