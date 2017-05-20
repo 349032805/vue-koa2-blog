@@ -1,6 +1,8 @@
 <template>
     <div id="aaa">
-        login
+        login sinner 77 hahhaah 
+        <p>哈哈哈</p>
+        h1  
     </div>
 </template>
 
@@ -11,7 +13,6 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-    @import '../../assets/stylus/main.styl'
     #aaa
         font-size: 20px
         background: blue

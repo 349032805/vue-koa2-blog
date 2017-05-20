@@ -5,6 +5,9 @@ import App from './App'
 import router from './router'
 import store from './store'
 
+//全局css
+import 'assets/stylus/index.styl' 
+
 Vue.config.productionTip = true
 
 /* eslint-disable no-new */
