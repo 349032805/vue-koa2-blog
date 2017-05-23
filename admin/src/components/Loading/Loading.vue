@@ -1,20 +1,18 @@
 <template>
-    <div :style="loadingStyle" class="loading-wrapper" v-html="svgString">
+    <div>
+        <img :src="svgSrc" alt="svg-loading" :style="loadingStyle">
     </div>
 </template>
 
 <script>
-import * as types from './loading-svg'
-
+/*
+    可传: type && size = { width: xxpx, height: xxpx }
+*/
 export default {
     props: {
         type: {
             type: String,
-            default: 'video'
-        },
-        color: {
-            type: String,
-            default: '#1ABC9C'
+            default: 'default'
         },
         size: {
             type: Object,
@@ -31,17 +29,11 @@ export default {
             return {
                 width: this.size.width,
                 height: this.size.height,
-                fill: this.color
             }
         },
-        svgString(){
-            return types[this.type];
+        svgSrc(){
+            return require(`./assets/${ this.type }.svg`);
         }
     }
 }
 </script>
-
-<style lang="stylus" scoped>
-    .loading-wrapper
-        margin: auto
-</style>

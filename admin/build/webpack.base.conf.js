@@ -39,7 +39,7 @@ module.exports = {
         include: [resolve('src'), resolve('test')]
       },
       {
-        test: /\.(png|jpe?g|gif)(\?.*)?$/,  //需要取消svg的配置
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
@@ -53,10 +53,6 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      },
-      { 
-        test: /\.svg$/, //读取文件为字符串
-        loader: 'raw-loader'
       }
     ]
   }
