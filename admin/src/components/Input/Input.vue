@@ -1,18 +1,66 @@
 <template>
     <div class="input-wrapper">
-        <label for="cart">card</label>
-        <input type="text" id="cart">
-        <div class="line"></div>
+        <label ref="title" :for="title">{{ title }}</label>
+        <input :type="type" @focus.stop="focusEvent" @blur.stop="blurEvent" :value="value" @input="inputEvent($event.target.value)" :id="title">
+        <div class="line" ref="line"></div>
     </div>
 </template>
 
 <script>
-    
+export default {
+    props: {
+       title: {
+           type: String,
+           default: 'custom-title'
+       },
+       value: {
+           type: String,
+           default: ''
+       },
+       type: {
+            default: 'text',
+            validator: function(val){
+                return ['text', 'password'].indexOf(val) > -1;
+            }
+       }
+    },
+    data(){
+        return {
+
+        }
+    },
+    methods: {
+        focusEvent(){
+            let oTitle = this.$refs.title;
+            let oLine = this.$refs.line;
+            oTitle.style.color = 'rgb(82,97,107)';
+            oTitle.style.webkitTransform = 'translate(0, -30px) scale(.5)';
+            oTitle.style.MozTransform = 'translate(0, -30px) scale(.5)';
+            oTitle.style.msTransform = 'translate(0, -30px) scale(.5)';
+            oTitle.style.OTransfrom = 'translate(0, -30px) scale(.5)';
+            oTitle.style.transform = 'translate(0, -30px)';
+            oTitle.style.fontSize = '25px'
+            oLine.style.width = '500px';
+        },
+        blurEvent(){
+            if(this.value === ''){
+                let oTitle = this.$refs.title;
+                let oLine = this.$refs.line;
+                oTitle.style = '';
+                oLine.style = '';
+            }
+        },
+        inputEvent(val){
+            this.$emit('input', val);
+        }
+    }
+}
 </script>
 
 <style lang="stylus" scoped>
 .input-wrapper
-    margin: 0 auto
+    margin: 40px auto
+    position: relative
     width: 500px
     input
         width: 100%
@@ -23,10 +71,17 @@
         text-indent: 10px
         outline: none
     label
+        position: absolute
+        top: 2px
+        font-size: 32px
         color: #3f4f5b
-        transition: all 0.3s
+        transition: all .3s
     .line
+        position: absolute
+        left: 0
+        bottom: 0
         width: 0
         height: 2px
-        background: #2384ea    
+        background: #2384ea
+        transition: all 0.3s ease-in-out .1s    
 </style>
