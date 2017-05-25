@@ -1,4 +1,9 @@
-body
-    font-family:Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Noto Sans CJK SC,WenQuanYi Micro Hei,Arial,sans-serif
-    font-size: 15px;
-    color: #262626
+@import './_setting'
+
+html,body
+    font-family: $body-font
+    font-size: $body-font-size
+    color: $body-font-color
+    overflow: hidden //有必要干掉浏览器原生<html>的滚动条---内滚动布局
+ul li
+    list-style: none

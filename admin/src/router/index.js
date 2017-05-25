@@ -1,11 +1,14 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 
 Vue.use(Router);
 
 //路由懒加载
 const Admin = resolve => require(['components/Admin/Admin'], resolve);
 const Login = resolve => require(['components/Login/Login'], resolve);
+import Article from 'components/Article/Article';
+import Tags from 'components/Tags/Tags';
+import Me from 'components/Me/Me';
 
 const router = new Router({
   mode: 'history',
@@ -13,9 +16,23 @@ const router = new Router({
     {
       path: '/admin',
       component: Admin,
-      meta: {
-        requiresAuth: true
-      }
+      // meta: {
+      //   requiresAuth: true
+      // }
+      children: [
+        {
+          path: 'article',
+          component: Article
+        },
+        {
+          path: 'tags',
+          component: Tags
+        },
+        {
+          path: 'me',
+          component: Me
+        }
+      ]
     },
     {
       path: '/admin/login',

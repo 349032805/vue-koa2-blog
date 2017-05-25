@@ -2,7 +2,7 @@
     <div class="login-wrapper">
         <v-input v-model="username" title="username"></v-input>
         <v-input v-model="password" title="password" type="password"></v-input>
-        <button>登录</button>
+        <button @click.stop="login">登录</button>
     </div>
 </template>
 
@@ -21,8 +21,8 @@ export default {
         'v-input': Input,
     },
     methods: {
-        cccc(){
-            this.$message();
+        login(){
+            console.log('click')
         }
     }
 }
@@ -38,4 +38,9 @@ export default {
         text-align: center
         width: 500px
         height: 50px
+        font-size: 25px
+        background: #F09313
+        color: #fff
+        border-radius: 5px
+        border: none
 </style>
