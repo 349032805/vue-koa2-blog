@@ -4,7 +4,7 @@
         <aside>
             <v-aside></v-aside>
         </aside>
-        <section>
+        <section id="scroll-section">
             <router-view></router-view>
         </section>
     </div>
@@ -16,6 +16,9 @@ import Aside from '../Aside/Aside';
 export default {
     components: {
         'v-aside': Aside
+    },
+    mounted(){
+        let scroll = new BScroll(document.getElementById('scroll-section'))
     }
 }
 </script>
@@ -48,6 +51,5 @@ export default {
         left: 256px
         right: 0
         bottom: 0
-        overflow-x: hidden
-        overflow-y: auto
+        overflow: hidden
 </style>
