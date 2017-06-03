@@ -18,7 +18,7 @@ export default {
         'v-aside': Aside
     },
     mounted(){
-        let scroll = new BScroll(document.getElementById('scroll-section'))
+    
     }
 }
 </script>

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 // title: String == title: { type: String }
+// 文章表共6个字段
 const articleSchema = new Schema({
     title: String,
     content: String,
