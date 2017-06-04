@@ -2,3 +2,223 @@
     at Object.throw (E:\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
     at Article.findById.catch (E:\Desktop\my-blog\server\controllers\article.js:43:22)
     at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m15:32:01.08 <error> ServiceUnavailableError: 服务器内部错误-数据查找错误!1111
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:43:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m15:40:54.74 <error> TypeError: Cannot read property 'populate' of null
+    at getArticleById (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:45:21)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m17:54:53.34 <error> TypeError: Article.find(...).skit is not a function
+    at getAllArticles (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:108:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\errorHandle.js:20:15)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\response.js:11:11)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at bodyParser (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-bodyparser@4.2.0@koa-bodyparser\index.js:86:11) (in errorHandle.js:24)[22m[39m
+[31m[1m17:55:11.81 <error> Error: sort() only takes 1 Argument
+    at model.Query.Query.sort (C:\Users\sinner\Desktop\my-blog\server\node_modules\_mongoose@4.10.4@mongoose\lib\query.js:1561:11)
+    at getAllArticles (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:110:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\errorHandle.js:20:15)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\response.js:11:11)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18) (in errorHandle.js:24)[22m[39m
+[31m[1m17:55:39.41 <error> ReferenceError: retult is not defined
+    at getAllArticles (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:106:20)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m17:59:34.72 <error> ReferenceError: retult is not defined
+    at getAllArticles (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:117:20)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:10:42.21 <error> TypeError: Assignment to constant variable.
+    at getAllArticles (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:94:17)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\errorHandle.js:20:15)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\response.js:11:11)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at bodyParser (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-bodyparser@4.2.0@koa-bodyparser\index.js:86:11) (in errorHandle.js:24)[22m[39m
+[31m[1m18:11:49.27 <error> TypeError: Assignment to constant variable.
+    at getAllArticles (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:95:17)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\errorHandle.js:20:15)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\response.js:11:11)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at bodyParser (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-bodyparser@4.2.0@koa-bodyparser\index.js:86:11) (in errorHandle.js:24)[22m[39m
+[31m[1m18:13:23.24 <error> TypeError: Assignment to constant variable.
+    at getAllArticles (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:98:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\errorHandle.js:20:15)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\response.js:11:11)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at bodyParser (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-bodyparser@4.2.0@koa-bodyparser\index.js:86:11) (in errorHandle.js:24)[22m[39m
+[31m[1m19:14:22.42 <error> BadRequestError: 摘要不能为空!
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at createArticle (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:17:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\errorHandle.js:20:15)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\response.js:11:11)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18) (in errorHandle.js:24)[22m[39m
+[31m[1m19:16:04.00 <error> BadRequestError: 标题不能为空!
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at createArticle (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:11:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\errorHandle.js:20:15)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\response.js:11:11)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18) (in errorHandle.js:24)[22m[39m
+[31m[1m19:16:12.18 <error> BadRequestError: 标题不能为空!
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at createArticle (C:\Users\sinner\Desktop\my-blog\server\controllers\article.js:11:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\errorHandle.js:20:15)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\response.js:11:11)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18) (in errorHandle.js:24)[22m[39m
+[31m[1m19:38:35.24 <error> TypeError: tag.save(...).exec is not a function
+    at createTag (C:\Users\sinner\Desktop\my-blog\server\controllers\tag.js:16:14)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\errorHandle.js:20:15)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\response.js:11:11)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at bodyParser (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-bodyparser@4.2.0@koa-bodyparser\index.js:86:11) (in errorHandle.js:24)[22m[39m
+[31m[1m19:40:27.80 <error> BadRequestError: 标签类型不能为空
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at createTag (C:\Users\sinner\Desktop\my-blog\server\controllers\tag.js:9:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\errorHandle.js:20:15)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\response.js:11:11)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18) (in errorHandle.js:24)[22m[39m
+[31m[1m19:40:59.34 <error> BadRequestError: 标签类型不能为空
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at createTag (C:\Users\sinner\Desktop\my-blog\server\controllers\tag.js:9:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\errorHandle.js:20:15)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\response.js:11:11)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18) (in errorHandle.js:24)[22m[39m
+[31m[1m19:54:05.04 <error> InternalServerError: 服务器内部错误-modifyTag错误!
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Tag.findByIdAndUpdate.exec.catch.err (C:\Users\sinner\Desktop\my-blog\server\controllers\tag.js:49:26)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m19:55:33.32 <error> InternalServerError: 服务器内部错误-modifyTag错误!
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Tag.findByIdAndUpdate.exec.catch.err (C:\Users\sinner\Desktop\my-blog\server\controllers\tag.js:49:26)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m19:56:28.85 <error> InternalServerError: 服务器内部错误-modifyTag错误!
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Tag.findByIdAndUpdate.exec.catch.err (C:\Users\sinner\Desktop\my-blog\server\controllers\tag.js:47:26)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m19:57:21.35 <error> InternalServerError: 服务器内部错误-modifyTag错误!
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Tag.findByIdAndUpdate.catch.err (C:\Users\sinner\Desktop\my-blog\server\controllers\tag.js:46:26)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m20:05:23.87 <error> InternalServerError: 服务器内部错误-delete错误!
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Tag.findByIdAndRemove.exec.catch.err (C:\Users\sinner\Desktop\my-blog\server\controllers\tag.js:62:26)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m

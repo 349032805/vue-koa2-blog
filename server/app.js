@@ -11,6 +11,9 @@ const response = require('./middlewares/response.js');
 //try/catch中间件
 const errorHandle = require('./middlewares/errorHandle.js');
 
+//initAdmin中间件
+const initAdmin = require('./middlewares/initAdmin.js');
+
 //引入路由
 const router = require('./routes');
 
@@ -44,6 +47,10 @@ app.use(response);
 
 //使用errorHandle中间件
 app.use(errorHandle);
+
+
+//使用initAdmin中间件
+app.use(initAdmin);
 
 //使用路由中间件
 app

@@ -2,7 +2,7 @@ const fs = require('fs');
 
 let config = {
    admin: {
-       user: 'admin',
+       username: 'admin',
        password: 'admin'
    },
    jwt: {

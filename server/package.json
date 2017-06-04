@@ -12,6 +12,7 @@
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
     "koa-router": "^7.1.1",
+    "md5": "^2.2.1",
     "mongoose": "^4.9.9",
     "tracer": "^0.8.9"
   }

@@ -1,7 +1,8 @@
-const UserModel = require('../models/user.js');
+const User = require('../models/user.js');
+const config = require('../configs');
 
 class UserController{
-    //用户登录
+    //用户登录(创建token)
     static async login(ctx){
 
     }
