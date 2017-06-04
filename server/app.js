@@ -9,9 +9,7 @@ const config = require('./configs');
 const response = require('./middlewares/response.js');
 
 //try/catch中间件
-// const errorHandle = require('./middlewares/errorHandle.js');
-
-
+const errorHandle = require('./middlewares/errorHandle.js');
 
 //引入路由
 const router = require('./routes');
@@ -29,7 +27,6 @@ db.once('open', () => {
     console.log('数据库连接成功！');
 });
 
-
 //输出请求的方法，url,和所花费的时间
 app.use(async (ctx, next) => {
     let start = new Date();
@@ -39,15 +36,14 @@ app.use(async (ctx, next) => {
 });
 
 //bodyParser中间件
-// const bodyParser = require('koa-bodyparser');
-// app.use(bodyParser());
+const bodyParser = require('koa-bodyparser');
+app.use(bodyParser());
 
-//使用response中间件
+//使用response中间件(放在最前面)
 app.use(response);
 
-
 //使用errorHandle中间件
-// app.use(errorHandle);
+app.use(errorHandle);
 
 //使用路由中间件
 app
