@@ -5,7 +5,8 @@ const config = require('../configs'),
       }),
       A = require('../controllers/article.js'),
       T = require('../controllers/tag.js'),
-      U = require('../controllers/user.js');
+      U = require('../controllers/user.js'),
+      checkToken = require('../middlewares/checkToken.js');
 
 
 /* HTTP动词
@@ -30,9 +31,9 @@ router
     .delete('/tags/:id', T.deleteTag)                               //删除单个标签
 
     .post('/login', U.login)                                        //用户登录
-    .post('/logout', U.logout)                                      //用户登出
-    .post('/modifyUser', U.updateUserMes)                           //更新用户信息
-    .post('/modifyPwd', U.resetPwd);                                //更新用户密码
+    //.post('/logout', checkToken, U.logout)                          用户登出（前台删除token即可）
+    .post('/modifyUser', checkToken, U.updateUserMes)                           //更改用户信息
+    .post('/modifyPwd', checkToken, U.resetPwd);                                //更改用户密码
 
 
 exports = module.exports = router;

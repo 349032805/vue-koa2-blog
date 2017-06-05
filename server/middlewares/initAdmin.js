@@ -2,10 +2,11 @@ const config = require('../configs');
 const User = require('../models/user');
 const md5 = require('md5');
 
-//初始化管理员账号中间件
+//初始化管理员账号中间件(当然这些中间件只有用户访问改网址才会执行)
 module.exports = async (ctx, next) => {
     const username = config.admin.username;
     const password = md5(config.admin.password);
+    const name = config.admin.name;
     let result = await User
         .find()
         .exec()
@@ -14,8 +15,10 @@ module.exports = async (ctx, next) => {
         });
     if(result.length === 0){
         let user = new User({
+            name,
             username,
-            password
+            password,
+            createTime: new Date()
         });
         await user
             .save()

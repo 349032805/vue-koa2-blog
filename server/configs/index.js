@@ -2,19 +2,20 @@ const fs = require('fs');
 
 let config = {
    admin: {
-       username: 'admin',
-       password: 'admin'
+       username: 'admin',           
+       password: 'admin',
+       name: 'sinner77'            
    },
    jwt: {
-       secret: 'secret',
-       exprisesIn: '2h'
+       secret: 'secret',            
+       exprisesIn: '3600s'          //以秒为单位
    },
    mongodb: {
        host: '127.0.0.1',
        database: 'blog',
        port: 27017,
-       user: '',
-       password: ''
+       user: '',                    //非必填
+       password: ''                 //非必填
    },
    app: {
        port: process.env.PORT || 3000,
