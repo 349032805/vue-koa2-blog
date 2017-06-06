@@ -1,14 +1,21 @@
 <template>
     <div class="article">
-        <ul class="test">
-            <li v-for="item in 66">{{ item }}</li>
-        </ul>
+        <v-page :total="100" :limit="6" @newPage="getNew(i)"></v-page>
     </div>
 </template>
 
 <script>
-export default {
+import Pagination from 'components/Pagination/Pagination';
 
+export default {
+    components: {
+        'v-page': Pagination
+    },
+    methods: {
+        getNew(i){
+            console.log(i);
+        }
+    }
 }
 </script>
 

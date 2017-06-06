@@ -1,6 +1,5 @@
 <template>
     <transition name="slide-fade">
-
             <div v-show="visible" class="message" @mouseenter="clearTimer" @mouseleave="startTimer">
                 <img :src="svgSrc" alt="svg" class="message-image">
                 <div class="message-content">
@@ -10,7 +9,6 @@
                     </div>
                 </div>
             </div>
-
     </transition>
 </template>
 

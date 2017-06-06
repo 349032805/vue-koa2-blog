@@ -217,16 +217,19 @@ const mutations = {
     state.allPage = allPage;
     state.curPage = curPage;
   },
+
   [types.GET_CURRENT_ARTICLE](state, article) {
     state.currentArticle = article;
   },
   [types.CHANGE_ARTICLE](state) {
     state.currentArticle.save = false;
   },
+
   [types.PUBLISH_ARTICLE](state, id) {
     state.currentArticle.publish = true;
     state.articleList.find(p => p.id === id).publish = true;
   },
+  
   [types.NOT_PUBLISH_ARTICLE](state, id) {
     state.currentArticle.publish = false;
     state.articleList.find(p => p.id === id).publish = false;
