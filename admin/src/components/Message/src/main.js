@@ -1,6 +1,5 @@
 import Vue from 'vue';
 //用预定义选项创建可复用的组件构造器
-
 let MessageConstructor = Vue.extend(require('./main.vue'));
 
 //私有变量
@@ -60,7 +59,7 @@ Message.close = function(id, userOnClose){
             if(typeof userOnClose === 'function'){
                 userOnClose(instances[i]);
             }
-            instances.splice(i, 1);
+            let deleteInstance = instances.splice(i, 1);
             break;
         }
     }

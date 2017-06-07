@@ -2,7 +2,8 @@
     <div class="pagination-wrapper" >
         <div class="prePage" @click="preEvent" v-show="prePage">上一页</div>
         <ul>
-            <li v-for="(item, index) in loopPage" @click="changeOffset(item, loopPage[index - 1])"> 
+            <li v-for="(item, index) in loopPage" @click="changeOffset(item, loopPage[index - 1])" 
+            :class="{ active:item===currentPage, hover:item!==currentPage&&item!==0 }"> 
             <!-- 注意这里传入的是item而不是索引index,loopPage[index - 1]为点击省略号的时候使用 -->
                 <a v-if="item">{{ item }}</a>
                 <a v-else>...</a>
@@ -41,10 +42,7 @@ export default {
         currentPage(){
             let result = (this.offset / this.limit) + 1
             //默认一开始就在第一页
-            if(result !== 1){
-                console.log('点击后获得的页数:' + result);
-                this.$emit('newPage', result);
-            } 
+            this.$emit('newPage', result);
             return result;
         },
         //上一页变量
@@ -83,7 +81,6 @@ export default {
             //当前页码距首页大于3且距尾页大于3时，显示当前页码和当前页码的前一页和后一页，两边各有一个省略号
             return [1, 0, index - 1, index, index + 1, 0, total]
         }
-
     },
     methods: {
         changeOffset(item, last){
@@ -110,5 +107,32 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+.pagination-wrapper
+    text-align: center
+    .prePage, .nextPage
+        display: inline-block
+        cursor: pointer
+        color: #009688
+        user-select: none
+        &:hover
+            color: #7ba6b3
+    ul 
+        display: inline-block
+        font-size: 0
+        list-style: none
+        li
+            display: inline-block
+            font-size: 16px
+            padding: 1px 10px
+            margin: 0 5px
+            color: #009688
+            border: 1px solid transparent
+            border-radius: 50%
+            cursor: pointer
+            user-select: none
+    .active
+        border-color: #009688
+    .hover
+        &:hover
+            border-color: #009688
 </style>
