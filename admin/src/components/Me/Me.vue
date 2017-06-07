@@ -1,13 +1,13 @@
 <template>
     <div class="article">
         <v-page :total="100" :limit="6" @newPage="getNew(i = arguments[0])"></v-page>
-        <v-confirm></v-confirm>
+        <button @click="clickEvent">click</button>
     </div>
 </template>
 
 <script>
 import Pagination from 'components/Pagination/Pagination';
-import Confirm from '../Confirm/src/main.vue';
+import Confirm from '../Confirm';
 
 export default {
     components: {
@@ -21,7 +21,11 @@ export default {
             console.log('分页得到的页数:' + i);
         },
         clickEvent(){
-            this.$message('aaa');
+            this.$confirm('???', '!!!').then(() => {
+                console.log('确实');
+            }).catch(() => {
+                console.log('取消');
+            });
         }
     },
 }

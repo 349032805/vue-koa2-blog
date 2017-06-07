@@ -1,5 +1,6 @@
 import * as types from '../mutation_types.js';
-import A from '../../axios/article';
+import A from '../../axios/article.js';
+import T from '../../axios/tag.js';
 
 const state = {
     articleList: [], //存放当前 页 的5篇 文章的对象
@@ -16,6 +17,55 @@ const state = {
     allPage: 1,
     curPage: 1,
     selectTagArr: []           //当前所选的tag的所有id的数组
+};
+
+const mutations = {
+    //创建标签，并push进currentArticle.tags里面
+     [types.TAG_CREATE](state, tag){
+         state.currentArticle.tags.push(tag);
+     },
+     //删除标签,index是要删除tag在currentArticle.tags里面的索引
+     [types.TAG_DELETE](state, index){
+         state.currentArticle.tags.splice(index, 1);
+     }
+};
+const actions = {
+    //创建标签
+     createTag({ commit }, tag){
+         return new Promise((resolve, reject) => {
+              T.createTag({ name: tag })
+                .then( res => {
+                    let data = res.data.data;
+                    let result = {};
+                    result.id = data._id;
+                    result.name = data.name;
+                    console.log(`创建标签成功${ result.name }`);
+                    commit(types.TAG_CREATE, result.id);
+                    resolve(result);
+                })
+                .catch( err => {
+                    reject(err);
+                });
+         });   
+     },
+     //删除标签
+     deleteTag({ commit }, {id, index}){
+         return new Promise((resolve, rejevt) => {
+             T.deleteTag(id)
+               .then(res => {
+                   let data = res.data.data;
+                   if(res.data.code === 200){
+                       console.log(`删除${ id }标签成功!`);
+                       commit(types.TAG_DELETE, index);
+                       resolve(data);
+                   }
+               })
+               .catch(err => {
+                   reject(err);
+               });
+
+         });
+     }
 };
 
 // const mutations = {
@@ -133,6 +183,7 @@ const state = {
 // };
 
 export default {
-    // state,
-    // mutations
+    state,
+    mutations,
+    actions
 }

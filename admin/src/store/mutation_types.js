@@ -19,3 +19,10 @@ export const ARTICLE_GET_CURRENT = 'ARTICLE_GET_CURRENT';
 export const ARTICLE_PUBLISH = 'ARTICLE_PUBLISH';
 //文章不发布
 export const ARTICLE_NOT_PUBLISH = 'ARTICLE_NOT_PUBLISH';
+
+
+//tag
+//创建标签
+export const TAG_CREATE = 'TAG_CREATE';
+//删除标签
+export const TAG_DELETE = 'TAG_DELETE';

@@ -99,12 +99,11 @@ export default {
         margin: 15px 10px 0 15px
         float: left
     .message-content
-        height: 60px
-        line-height: 60px
-        margin-top: -14px
         .text
             color: #fff
             font-size: 14px
+            height: 60px
+            line-height: 60px
         .close-btn
             position: absolute
             top: 3px
