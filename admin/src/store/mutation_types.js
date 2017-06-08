@@ -19,6 +19,8 @@ export const ARTICLE_GET_CURRENT = 'ARTICLE_GET_CURRENT';
 export const ARTICLE_PUBLISH = 'ARTICLE_PUBLISH';
 //文章不发布
 export const ARTICLE_NOT_PUBLISH = 'ARTICLE_NOT_PUBLISH';
+//清空草稿
+export const EMPTY_DRAFT = 'EMPTY_DRAFT';
 
 
 //tag

@@ -55,8 +55,26 @@ class ArticleController{
         });
     }
     //发布文章
-    static async publishArticle(ctx){
-
+    static async ifPublishArticle(ctx){
+        const id = ctx.params.id;
+        const publish = ctx.request.body.publish;
+        if(publish !== true && publish !== false){
+            ctx.throw(400, 'publish字段不能为除true和false之外的值!');
+        }
+        let result = await Article
+            .findByIdAndUpdate(id, {
+                publish
+            }, {
+                new: true
+            })
+            .exec()
+            .catch(err => {
+                ctx.throw(500, '服务器内部错误-updatePublish错误!')
+            });
+        ctx.success({
+            msg: '更新publish成功!',
+            data: result
+        });
     }
     //删除文章
     static async deleteArticleById(ctx){

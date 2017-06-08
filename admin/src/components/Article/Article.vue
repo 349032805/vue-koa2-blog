@@ -17,18 +17,16 @@
             </div>        
             <textarea id="editor"></textarea>
             <div class="btn">
-                <div class="delete">删除草稿</div>
-                <div class="delete">新建草稿</div>
-                <div class="delete" @click.stop="deleteArticle">取消发布</div>
-                <div class="save" @click.stop="saveArticle">发布文章</div>
+                <div class="delete" @click.stop="emptyDraft">新建草稿</div>
+                <div class="save" @click.stop="publishArticle">发布文章</div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-//整个流程就是一进入/admin/article就自动新建好了草稿,把状态存到store
-//把currentArticle的id改为当前草稿的id, id!=-1说明当前存在文章草稿
+//整个过程其实就是在围绕着this.$store.state.currentArticle这个状态对象来做的
+//currentArticle.id === -1 说明当前没有文章
 //
 //当从“文章管理”点击"编辑"进来，那么得跳转到/admin/article并更改全局状态为点击“编辑”
 //的文章的状态。这时候进入"admin/article"这个路由就不能再自动新建草稿了。此时要询问用户
@@ -39,6 +37,10 @@ import Simplemde from 'simplemde';
 import marked from 'assets/js/marked.js';
 //引入辅助函数
 import { mapState } from 'vuex';
+//引入防抖函数，自动保存文章需用到
+import debounce from 'assets/js/debounce.js';
+//当前的全局变量
+let simplemde;
 
 export default {
     data(){
@@ -55,40 +57,162 @@ export default {
         })
     },
     mounted(){
-        let simplemde = new Simplemde({
+        simplemde = new Simplemde({
             element: document.getElementById('editor'),
-            placeholder: "Type here...",
+            placeholder: "Press Ctrl+S to save the article...",
             previewRender: function(plainText) {
                 return marked(plainText); // Returns HTML from a custom parser
             }
         });
-        simplemde.codemirror.on("change", function(){
-            console.log(simplemde.value());
+        //监听编辑器内容change事件
+        simplemde.codemirror.on("change", () => {
             let value = simplemde.value();
             //如果没有改动，则什么都不做
-            // if(this.articleContent === value){
-            //     return;
-            // }else{
-            //     this.saveArticle();
-            // }
-
-            this.articleContent = value; 
+            if(this.articleContent === value){
+                return;
+            }
+            this.articleContent = value;
+        });
+        //按下ctrl+s就保存文章
+        simplemde.codemirror.on('keydown', (cm, e) => {
+            if( e.ctrlKey  == true && e.keyCode == 83 ){
+                //保存文章并阻止浏览器保存页面的默认事件
+                this.saveArticle();
+                e.preventDefault();
+	        }
         });
     },
     methods: {
-        //发布文章
+        //清空草稿：清空状态
+        emptyDraft(){
+            //如果当前存在内容/标题/标签，但没有按Ctrl+S
+            if(this.articleTitle !== '' && this.tagArr.length !== 0 && this.articleContent !== '' && this.currentArticle.save === false){
+                this.$message({
+                    type: 'warning',
+                    message: '当前文章还未保存！'
+                });
+                return ;
+            }
+            this.$confirm('此操作将替换当前文章,是否继续?', '提示')
+                .then(() => {
+                    this.articleTitle = '';
+                    this.articleTag = '';
+                    this.articleContent = '';
+                    this.tagArr = [];
+                    this.$store.commit('EMPTY_DRAFT');
+                    simplemde.value('');
+                    this.$message({
+                        type: 'success',
+                        message: '新建草稿成功!'
+                    });
+                })
+                .catch(() => {
+
+                });
+        },
+        //发布文章:需满足信息已完善并且已经保存
         publishArticle(){
-
+            if(this.articleContent === '' || this.tagArr.length === 0 || this.articleTitle === ''){
+                this.$message({
+                    type: 'success',
+                    message: '请先完善文章!'
+                });
+                return;
+            }
+            if(this.currentArticle.save === false){
+                this.$message({
+                    type: 'warning',
+                    message: '文章还未保存!'
+                });
+                return ;
+            }
+            this.$confirm('此操作将发布文章,是否继续?', '提示')
+                .then(res => {
+                    this.$store.dispatch('publishArticle')
+                        .then(res => {
+                            if(res.code === 200){
+                                this.$message({
+                                    type: 'success',
+                                    message: '发布文章成功!'
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            console.log('发布文章失败:' + err);
+                            this.$message({
+                                type: 'error',
+                                message: '发布文章失败!'
+                            });
+                        });
+                })
+                .catch(() => {});
+            
         },
-        //删除草稿
-        deleteArticle(){
-
-        },
-        //保存文章
+        //保存文章-----标签/内容/摘要不能为空才能保存
         saveArticle(){
-            console.log(this.currentArticle);
+            let title = this.articleTitle;
+            let content = this.articleContent;
+            let tags = [];
+            this.tagArr.forEach((val) => {
+                tags.push(val.id);
+            });
+            console.log('tags:' + tags);
+            if(title === ''){
+                this.$message({
+                    type: 'warning',
+                    message: '标题不能为空!'
+                });
+                return;
+            }
+            if(tags.length === 0){
+                this.$message({
+                    type: 'warning',
+                    message: '标签不能为空!'
+                });
+                return;
+            }
+            if(content === ''){
+                this.$message({
+                    type: 'warning',
+                    message: '内容不能为空!'
+                });
+                return;
+            }
+            let abstract;
+            if(content.indexOf('<!--more-->') !== -1){
+                abstract = content.split('<!--more-->')[0];
+            }else{
+                this.$message({
+                    type: 'warning',
+                    message: '摘要不能为空!'
+                });
+                return;
+            }
+            let article = {
+                title,
+                content,
+                abstract,
+                tags
+            };
+            this.$store.dispatch('saveArticle', article)
+                .then(res => {
+                    console.log('保存文章成功' + res.code);
+                    if(res.code === 200){
+                        this.$message({
+                        type: 'success',
+                        message: '保存文章成功!'
+                    });
+                    }
+                })
+                .catch(err => {
+                    console.log('保存文章错误:' + err);
+                    this.$message({
+                        type: 'error',
+                        message: '保存文章错误!'
+                    });
+                });
         },
-        //按enter添加标签(不能超过5个，不能重复)
+        //按enter添加标签(不能超过5个，不能重复)-----这里应该不用发请求去创建标签，等保存文章的时候统一发送比较好
         addTag(){
             if(this.tagArr.findIndex(v => v.name === this.articleTag ) > -1){
                 this.$message({
@@ -220,6 +344,7 @@ export default {
             position: absolute
             top: 20px
             right: 20px
+            cursor: pointer
             .delete, .save
                 display: inline-block
                 font-size: 16px

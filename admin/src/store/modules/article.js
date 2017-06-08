@@ -6,12 +6,11 @@ const state = {
     articleList: [], //存放当前 页 的5篇 文章的对象
     tagList: [],    //存放标签对象-----网站上的所有标签
     currentArticle: {
-        id: -1,     //当前文章id 
-        index: -1,      //index为当前文章数组中的第index个
+        id: -1,     //当前文章id
         content: '',    //内容
         title: '',      //标题
-        tags: [],       //标签
-        save: true,     //存储
+        tags: [],       //标签数组：只存放标签_id字符串，不是对象数组
+        save: false,     //存储
         publish: false  //发布
     },
     allPage: 1,
@@ -27,9 +26,91 @@ const mutations = {
      //删除标签,index是要删除tag在currentArticle.tags里面的索引
      [types.TAG_DELETE](state, index){
          state.currentArticle.tags.splice(index, 1);
+     },
+     //保存文章。
+     [types.ARTICLE_SAVE](state, article){
+         state.currentArticle.id = article['_id'];
+         state.currentArticle.title = article.title;
+         state.currentArticle.content = article.content;
+         let tags = [];
+         article.tags.forEach((val) => {
+             tags.push(val._id);
+         });
+         state.currentArticle.tags = tags; 
+         state.currentArticle.save = true;
+         state.currentArticle.publish = false;
+     },
+     //清空草稿：需要清空state.currentArticle所有状态
+     [types.EMPTY_DRAFT](state){
+        state.currentArticle.id = -1;
+        state.currentArticle.content = '';
+        state.currentArticle.title = '';
+        state.currentArticle.tags = [];
+        state.currentArticle.save = false;
+        state.currentArticle.publish = false;
+     },
+     //发布文章： 更改当前文章的publish状态
+     [types.ARTICLE_PUBLISH](state){
+         state.currentArticle.publish = true;
+     },
+     //不发布文章：
+     [types.ARTICLE_NOT_PUBLISH](state){
+         state.currentArticle.publish = false;
      }
 };
 const actions = {
+    //发布文章
+    publishArticle({ commit, state}){
+        return new Promise((resolve, reject) => {
+            A.ifPubArticles(state.currentArticle.id, true)
+                .then(res => {
+                    console.log(res);
+                    if(res.data.code === 200){
+                        commit(types.ARTICLE_PUBLISH);
+                        resolve(res.data);
+                    }
+                })
+                .catch(err => {
+                    reject(err);
+                });
+        });
+    },
+    //保存文章,需要判断是点击“编辑”进来的文章，还是直接点击/admin/article这个路由来发布的新文章 
+    saveArticle({ commit, state}, { title, content, abstract, tags }){
+        //如果state.currentArticle.id=-1，说明是新的文章，调用创建文章的接口
+        let id = state.currentArticle.id;
+        let articleObject = { title, content, abstract, tags };
+        if( id === -1){
+            return new Promise((resolve, reject) => {
+                A.createArticle(articleObject)
+                    .then(res => {
+                        let article = res.data.data;
+                        if(res.data.code === 200){
+                            commit(types.ARTICLE_SAVE, article);
+                        }
+                        resolve(res.data);
+                    })
+                    .catch(err => {
+                        reject(err);
+                    });
+            });
+        }else{ //如果state.currentArticle.id=-1，说明是旧的文章，调用修改文章的接口
+            return new Promise((resolve, reject) => {
+                A.modifyArticle(id, articleObject)
+                    .then(res => {
+                        console.log(res);
+                        let article = res.data.data;
+                        if(res.data.code === 200){
+                            commit(types.ARTICLE_SAVE, article);
+                        }
+                        resolve(res.data);
+                    })
+                    .catch(err => {
+                        reject(err);
+                    });
+            });
+        }
+    },
     //创建标签
      createTag({ commit }, tag){
          return new Promise((resolve, reject) => {
@@ -67,120 +148,6 @@ const actions = {
          });
      }
 };
-
-// const mutations = {
-//     //article应该是一个对象
-//     [types.ARTICLE_CREATE](state, article){
-//         state.articleList.unshift(article);
-//         state.currentArticle = article;
-//     },
-//     //传入一个id表示当前要保存的文章的id
-//     [types.ARTICLE_SAVE](state, { id, article }){
-//         state.currentArticle.save = true;//当前文章保存
-//         //找出articleList数组里面符合条件的文章
-//         let now = state.articleList.find(p => p.id === id)
-//             if (now) {
-//             now.title = article.title;
-//             now.content = article.content;
-//             now.abstract = article.abstract;
-//             now.tags = article.tags;
-//             now.lastEditTime = article.lastEditTime;
-//         }
-//     },
-//     //发布文章，只需将当前文章publish改为true
-//     [types.ARTICLE_PUBLISH](state){
-//         state.currentArticle.publish = true;
-//     },
-//     //获取所有文章，传入当前分页的所有文章，页数，总页数
-//     [types.ARTICLE_GET_ALL](state, { articleList, allPage, curPage}){
-//         state.articleList = articleList;
-//         state.allPage = allPage;
-//         state.curPage = curPage;
-//     },
-//     //获取当前文章
-//     [types.ARTICLE_GET_CURRENT](state, article){
-//         state.currentArticle = article;
-//     },
-//     //改变当前文章为不保存
-//     [types.ARTICLE_CHANGE](state){
-//         state.currentArticle.save = false;
-//     },
-//     //发布文章，同时文章数组里面对应的文章也要改
-//     [types.ARTICLE_PUBLISH](state, id){
-//         state.currentArticle.publish = true;
-//         state.article.find(p => p.id === id).publish = true;
-//     },
-//     //不发布文章，同时文章数组里面对应的文章也要改
-//     [types.ARTICLE_NOT_PUBLISH](state, id){
-//         state.currentArticle.publish = false;
-//         state.articleList.find(p => p.id === id).publish = true;
-//     },
-//     //删除文章，同时文章数组里面对应的文章也要删除
-//     [types.ARTICLE_DELETE](state, index){
-//         //删除
-//         state.articleList.splice(index, 1);
-//         //如果删除的是最后一个，那么这个index就不能用了
-//         if(index > state.article.length - 1){
-//             index = state.article.length - 1;
-//         }
-//         //数组里面的article对象是没有index和publish属性的
-//         state.currentArticle = state.articleList[index];
-//         state.currentArticle.index = index;
-//         state.currentArticle.save = true;
-//     },
-//     //创建标签，存入当前文章
-//     [types.CREATE_TAG](state, tag) {
-//         state.currentArticle.tags.push(tag)
-//     },
-//     //修改标签-----应该有误
-//     [types.MODIFY_TAG](state, name) {
-//         state.currentArticle.tags.push(name)
-//     },
-//     //删除标签，三个地方都给删除
-//     [types.DELETE_TAG](state, id) {
-//         state.tagList = state.tagList.filter((e) => {
-//         return e.id !== id;
-//         })
-//         state.currentArticle.tags = state.currentArticle.tags.filter((e) => {
-//         return e.id !== id;
-//         })
-//         state.selectTagArr = state.selectTagArr.filter((e) => {
-//         return e !== id;
-//         })
-//     },
-    //------------------------------------------------
-    // //删除当前文章的某个标签
-    // [types.DELETE_CURRENT_TAG](state, index) {
-    //     state.currentArticle.tags.splice(index, 1)
-    // },
-    // //获取所有标签
-    // [types.GET_ALL_TAGS](state, tagList) {
-    //     state.tagList = tagList;
-    // },
-    // //设置总页数
-    // [types.SET_ALL_PAGE](state, allPage) {
-    //     state.allPage = allPage;
-    // },
-    // //设置当前页数
-    // [types.SET_CUR_PAGE](state, curPage) {
-    //     state.curPage = curPage;
-    // },
-    // //切换当前所选文章的tag
-    // [types.TOGGLE_SELECT_TAG](state, id) {
-    //     if (!state.selectTagArr.includes(id)) {
-    //     state.selectTagArr.push(id);
-    //     } else {
-    //     state.selectTagArr = state.selectTagArr.filter((e) => {
-    //         return e !== id;
-    //     })
-    //     }
-    // },
-    // //清空当前所选的tag的id数组
-    // [types.CLEAR_SELECT_TAG](state) {
-    //     state.selectTagArr = [];
-    // }
-    //-----------------------------types有误
-// };
 
 export default {
     state,

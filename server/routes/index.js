@@ -24,6 +24,7 @@ router
     .patch('/articles/:id', A.modifyArticle)                      //修改文章
     .get('/allArticles', A.getAllArticles)                      //获取所有文章
     .get('/articles', A.getAllPublishedArticles)                      //获取所以已发布的文章（前台使用）
+    .patch('/pubArticles/:id', A.ifPublishArticle)                //发布或不发布文章
 
     .post('/tags', T.createTag)                                  //创建标签
     .get('/tags', T.getAllTags)                                    //获取所有标签

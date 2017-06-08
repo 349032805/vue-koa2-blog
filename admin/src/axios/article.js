@@ -14,8 +14,8 @@ export default {
         return axios.delete(`/api/articles/${ id }`);
     },
     //修改文章
-    modifyArticle(id){
-        return axios.patch(`/api/articles/${ id }`);
+    modifyArticle(id, data){
+        return axios.patch(`/api/articles/${ id }`, data);
     },
     //获取所有文章
     getAllArticles(){
@@ -24,5 +24,9 @@ export default {
      //获取所以已发布的文章
     getAllPublishedArticles(){
         return axios.get('/api/articles');
+    },
+    //发布或者不发布文章
+    ifPubArticles(id, boolean){
+        return axios.patch(`/api/pubArticles/${ id }`, { publish : boolean });
     }
 }
