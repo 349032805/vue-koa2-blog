@@ -4,7 +4,7 @@
             <router-link to="/admin/article" tag="li" active-class="active" class="aside-nav-list">
                 <i class="iconfont icon-blueberrypublish"></i>发布文章
             </router-link>
-            <router-link to="/admin/aaa" tag="li" active-class="active" class="aside-nav-list">
+            <router-link to="/admin/list" tag="li" active-class="active" class="aside-nav-list">
                 <i class="iconfont icon-articleb"></i>文章管理
             </router-link>
             <router-link to="/admin/tags" tag="li" active-class="active" class="aside-nav-list">

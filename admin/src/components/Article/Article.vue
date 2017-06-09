@@ -296,7 +296,7 @@ export default {
 .article-wrapper
     width: calc(100% + 20px)
     height: 100%
-    overflowx-x: hidden
+    overflow-x: hidden
     overflow-y: auto
     .article
         position: relative

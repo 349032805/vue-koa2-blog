@@ -9,6 +9,7 @@ const Login = resolve => require(['components/Login/Login'], resolve);
 import Article from 'components/Article/Article';
 import Tags from 'components/Tags/Tags';
 import Me from 'components/Me/Me';
+import ArticleManage from 'components/ArticleManage/ArticleManage';
 
 const router = new Router({
   mode: 'history',
@@ -23,6 +24,10 @@ const router = new Router({
         {
           path: 'article',
           component: Article
+        },
+        {
+          path: 'list',
+          component: ArticleManage
         },
         {
           path: 'tags',

@@ -3,19 +3,13 @@ import A from '../../axios/article.js';
 import T from '../../axios/tag.js';
 
 const state = {
-    articleList: [], //存放当前 页 的5篇 文章的对象
-    tagList: [],    //存放标签对象-----网站上的所有标签
     currentArticle: {
         id: -1,     //当前文章id
         content: '',    //内容
         title: '',      //标题
         tags: [],       //标签数组：只存放标签_id字符串，不是对象数组
         save: false,     //存储
-        publish: false  //发布
-    },
-    allPage: 1,
-    curPage: 1,
-    selectTagArr: []           //当前所选的tag的所有id的数组
+    }
 };
 
 const mutations = {
@@ -38,7 +32,6 @@ const mutations = {
          });
          state.currentArticle.tags = tags; 
          state.currentArticle.save = true;
-         state.currentArticle.publish = false;
      },
      //清空草稿：需要清空state.currentArticle所有状态
      [types.EMPTY_DRAFT](state){
@@ -47,15 +40,9 @@ const mutations = {
         state.currentArticle.title = '';
         state.currentArticle.tags = [];
         state.currentArticle.save = false;
-        state.currentArticle.publish = false;
      },
      //发布文章： 更改当前文章的publish状态
      [types.ARTICLE_PUBLISH](state){
-         state.currentArticle.publish = true;
-     },
-     //不发布文章：
-     [types.ARTICLE_NOT_PUBLISH](state){
-         state.currentArticle.publish = false;
      }
 };
 const actions = {

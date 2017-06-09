@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="loading-wrapper">
         <img :src="svgSrc" alt="svg-loading" :style="loadingStyle">
     </div>
 </template>
@@ -9,6 +9,7 @@
     可传: type && size = { width: xxpx, height: xxpx }
 */
 export default {
+    name: 'loading',
     props: {
         type: {
             type: String,
@@ -37,3 +38,9 @@ export default {
     }
 }
 </script>
+
+<style lang="stylus" scoped>
+.loading-wrapper
+    text-align: center
+    margin: 100px 0
+</style>
