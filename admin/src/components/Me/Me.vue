@@ -2,12 +2,14 @@
     <div class="article">
         <v-page :total="100" :limit="6" @newPage="getNew(i = arguments[0])"></v-page>
         <button @click="clickEvent">click</button>
+        <v-table></v-table>
     </div>
 </template>
 
 <script>
 import Pagination from 'components/Pagination/Pagination';
 import Confirm from '../Confirm';
+import ArticleTable from '../ArticleTable/ArticleTable';
 
 export default {
     components: {
@@ -28,6 +30,10 @@ export default {
             });
         }
     },
+    components: {
+        'v-table': ArticleTable,
+        'v-page': Pagination 
+    }
 }
 </script>
 
