@@ -8,7 +8,7 @@ export const ARTICLE_CREATE = 'ARTICLE_CREATE';
 //文章删除
 export const ARTICLE_DELETE = 'ARTICLE_DELETE';
 //文章修改
-export const ARTICLE_CHANGE = 'ARTICLE_CHANGE';
+export const ARTICLE_MODIFY = 'ARTICLE_MODIFY';
 //文章保存
 export const ARTICLE_SAVE = 'ARTICLE_SAVE';
 //获取所有文章

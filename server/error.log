@@ -102,3 +102,15 @@
     at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
     at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
     at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m10:25:37.56 <error> InternalServerError: 服务器内部错误-delete错误!
+    at Object.throw (E:\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Tag.findByIdAndRemove.exec.catch.err (E:\Desktop\my-blog\server\controllers\tag.js:73:26)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m10:43:21.32 <error> InternalServerError: 服务器内部错误-findByIdAndUpdate错误!
+    at Object.throw (E:\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findByIdAndUpdate.populate.exec.catch (E:\Desktop\my-blog\server\controllers\article.js:115:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m11:05:03.85 <error> InternalServerError: 服务器内部错误-updatePublish错误!
+    at Object.throw (E:\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findByIdAndUpdate.exec.catch.err (E:\Desktop\my-blog\server\controllers\article.js:72:26)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m

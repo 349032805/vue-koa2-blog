@@ -11,7 +11,7 @@
                 <ul class="tags-wrapper">
                     <li class="has-tag" v-for="(item, index) in tagArr">
                         <span><i class="iconfont icon-tag i-tag"></i>{{ item.name }}</span>
-                        <i class="iconfont icon-delete" @click.stop="deleteTag(item.id, index)"></i>
+                        <i class="iconfont icon-delete" @click.stop="deleteTag(item._id, index)"></i>
                     </li>
                 </ul>
             </div>        
@@ -119,10 +119,19 @@ export default {
                 });
                 return;
             }
+            //判断全局save状态
             if(this.currentArticle.save === false){
                 this.$message({
                     type: 'warning',
                     message: '文章还未保存!'
+                });
+                return ;
+            }
+            //判断全局publish状态
+            if(this.currentArticle.publish === true){
+                this.$message({
+                    type: 'success',
+                    message: '文章早已经发布啦!'
                 });
                 return ;
             }
@@ -152,11 +161,9 @@ export default {
         saveArticle(){
             let title = this.articleTitle;
             let content = this.articleContent;
-            let tags = [];
-            this.tagArr.forEach((val) => {
-                tags.push(val.id);
+            let tags = this.tagArr.map((obj) => {
+                return obj._id;
             });
-            console.log('tags:' + tags);
             if(title === ''){
                 this.$message({
                     type: 'warning',
@@ -188,6 +195,7 @@ export default {
                 });
                 return;
             }
+            //构造好要保存的数组
             let article = {
                 title,
                 content,
@@ -196,16 +204,15 @@ export default {
             };
             this.$store.dispatch('saveArticle', article)
                 .then(res => {
-                    console.log('保存文章成功' + res.code);
-                    if(res.code === 200){
+                    if(res){
                         this.$message({
-                        type: 'success',
-                        message: '保存文章成功!'
-                    });
+                            type: 'success',
+                            message: '保存文章成功!'
+                        });
                     }
                 })
                 .catch(err => {
-                    console.log('保存文章错误:' + err);
+                    console.log('保存文章错误！');
                     this.$message({
                         type: 'error',
                         message: '保存文章错误!'
@@ -230,15 +237,17 @@ export default {
             }
              this.$store.dispatch('createTag', this.articleTag)
                 .then(res => { //res为{id: 'XXX', name: 'xxx'}
-                    this.tagArr.push(res);
-                    this.articleTag = '';
-                    this.$message({
-                        type: 'success',
-                        message: '标签创建成功!'
-                    });
+                    if(res){
+                        this.tagArr.push(res);
+                        this.articleTag = '';
+                        this.$message({
+                            type: 'success',
+                            message: '标签创建成功!'
+                        });
+                    }
                 })
                 .catch(err => {
-                    console.log(err);
+                    console.log('创建标签错误！');
                     this.$message({
                         type: 'error',
                         message: '标签创建失败!'
@@ -252,7 +261,6 @@ export default {
                     this.$store.dispatch('deleteTag', {id, index})
                         .then(res => {
                             if(res){
-                                //切除掉
                                 this.tagArr.splice(index, 1);
                                 this.$message({
                                     type: 'success',
@@ -261,16 +269,15 @@ export default {
                             }
                         })
                         .catch(err => {
+                            cosole.log('删除标签失败！');
                             this.$message({
                                 type: 'error',
                                 message: '删除失败！'
                             });
                         });
                 })
-                .catch(() => {
-
-                });
-        }
+                .catch(() => {});
+        },
     }
 }
 </script>
