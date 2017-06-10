@@ -51,10 +51,35 @@ export default {
             articleContent: ''
         }
     },
+    //这个组件只映射了state.article到computed。其他更改状态的mutations,actions,没有映射进来。主要是为了能
+    //明显区别改方法就是再更改状态的
     computed: {
         ...mapState({
-            currentArticle: state => state.article.currentArticle
+            currentArticle: state => state.article.currentArticle,
+            allArticles: state => state.article.allArticles
         })
+    },
+    beforeRouteEnter(to, from, next){
+        let index = to.query.index;
+        if(to.path === "/admin/article" && from.path === "/admin/list" && index >= 0){
+            console.log('我是来编辑文章的！');
+            next(vm => {
+                let title = vm.allArticles[index].title;
+                let content = vm.allArticles[index].content;
+                let tags = vm.allArticles[index].tags.slice(0);
+                vm.articleTitle = title;
+                vm.articleContent = content;
+                vm.tagArr = tags;
+                simplemde.value(content);
+                //还需把当前文章更改为当前“编辑”的文章
+                vm.$store.commit('ARTICLE_MODIFY', {
+                    article: vm.allArticles[index],
+                    index
+                });
+            });
+        }else{
+            next();
+        }
     },
     mounted(){
         simplemde = new Simplemde({
@@ -106,9 +131,7 @@ export default {
                         message: '新建草稿成功!'
                     });
                 })
-                .catch(() => {
-
-                });
+                .catch(() => {});
         },
         //发布文章:需满足信息已完善并且已经保存
         publishArticle(){
@@ -131,15 +154,15 @@ export default {
             if(this.currentArticle.publish === true){
                 this.$message({
                     type: 'success',
-                    message: '文章早已经发布啦!'
+                    message: '文章早已经发布,无需再发布啦!'
                 });
                 return ;
             }
             this.$confirm('此操作将发布文章,是否继续?', '提示')
                 .then(res => {
-                    this.$store.dispatch('publishArticle')
+                    this.$store.dispatch('publishArticle', { id: this.currentArticle._id })
                         .then(res => {
-                            if(res.code === 200){
+                            if(res){
                                 this.$message({
                                     type: 'success',
                                     message: '发布文章成功!'
@@ -147,7 +170,7 @@ export default {
                             }
                         })
                         .catch(err => {
-                            console.log('发布文章失败:' + err);
+                            console.log('发布文章失败!');
                             this.$message({
                                 type: 'error',
                                 message: '发布文章失败!'
@@ -186,7 +209,7 @@ export default {
                 return;
             }
             let abstract;
-            if(content.indexOf('<!--more-->') !== -1){
+            if(content.indexOf('<!--more-->') !== -1 && content.split('<!--more-->')[0] !== ''){
                 abstract = content.split('<!--more-->')[0];
             }else{
                 this.$message({

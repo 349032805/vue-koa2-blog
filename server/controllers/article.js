@@ -87,9 +87,9 @@ class ArticleController{
             data: result
         });
     }
-    //修改文章
+    //修改文章：不接受publish的修改
     static async modifyArticle(ctx){
-        const { title, content, publish, tags, abstract} = ctx.request.body;
+        const { title, content, tags, abstract} = ctx.request.body;
         if(!title){
             ctx.throw(400, '标题不能为空!');
         }
@@ -105,7 +105,6 @@ class ArticleController{
             title,
             content,
             abstract,
-            publish,
             tags,
             lastEditTime
         }, { new: true })
