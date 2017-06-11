@@ -1,35 +1,84 @@
 <template>
     <div class="tags-wrapper">
         <div class="tags">
-           
+            <v-tag v-for="(item, index) in tags" :tagName="item" :index="index"
+            @changeValue="changeTag"
+            ></v-tag>
         </div>
+        <v-loading v-show="loading"></v-loading>
     </div>
 </template>
 
 <script>
+import Tag from 'components/tag/tag';
+import Loading from 'components/Loading/Loading';
+import { mapState } from 'vuex';
 
 export default {
     data(){
         return {
-            tags: ['标签1', '标签2', '标签3', '标签4', '标签5','标签6', '标签7', '标签8', '标签9', '标签10','标签11', '标签12', '标签13', '标签14', '标签15','标签16', '标签21', '标签23']
+            loading: true
+        }
+    },
+    computed:{
+        ...mapState({
+            allArticles: state => state.article.allArticles,
+            allTags: state => state.article.allTags
+        }),
+        tags(){
+            return this.allTags.map(o => o.name);
         }
     },
     created(){
-
+        this.$store.dispatch('getAllTags')
+            .then((res) => {
+                this.loading = false;
+            })
+            .catch(err => {
+                this.$message({
+                    type: 'error',
+                    message: '获取所有标签失败!'
+                });
+            })
     },
     mounted(){
+    },
+    methods: {
+        //改变标签内容
+        changeTag({ val, index }){
+            let id = this.allTags[index]._id;
+            this.$store.dispatch('modifyTag', { val, id })
+                .then(res => {
+                    this.$message({
+                        type: 'error',
+                        message: '修改标签成功!'
+                    });
+                })
+                .catch(err => {
+                    this.$message({
+                        type: 'error',
+                        message: '修改标签失败!'
+                    });
+                });
+        }
+    },
+    components: {
+        'v-tag': Tag,
+        'v-loading': Loading
     }
 }
 </script>
 
 
 <style lang="stylus" scoped>
-
+@import '../../assets/stylus/_setting';
 .tags-wrapper
     width: calc(100% + 20px)
     height: 100%
     overflow-x: hidden
     overflow-y: auto
     .tags
-        padding: 20px
+        box-sizing: border-box
+        width: calc(100% - 20px)
+        padding: 10px
 </style>

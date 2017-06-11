@@ -18,7 +18,7 @@ const state = {
 };
 
 const mutations = {
-    //创建标签，并push进currentArticle.tags里面
+    //创建标签，并push进currentArticle.tags里面-----缺
      [types.TAG_CREATE](state, tag){
          state.currentArticle.tags.push(tag);
         //  if(state.currentArticle._id !== -1){ //如果当前存在文章
@@ -26,7 +26,7 @@ const mutations = {
         //      state.allArticles[state.currentArticle.index].tags.push(tag);
         //  }
      },
-     //删除标签,index是要删除tag在currentArticle.tags里面的索引
+     //删除标签,index是要删除tag在currentArticle.tags里面的索引-----缺
      [types.TAG_DELETE](state, index){
          state.currentArticle.tags.splice(index, 1);
          //如果当前currentArticle.id != -1,说明是存在文章的
@@ -131,12 +131,50 @@ const mutations = {
             state.allArticles.splice(index, 1)
         }
      },
-     //点击“编辑”后,编辑文章
-     [types.ARTICLE_CHANGE]({ state }, index){
-
+     //查询所有标签:需要存入allTags
+     [types.TAG_GET_ALL](state, tags){
+        state.allTags = tags;
+     },
+     //修改某个标签同时还需同currentArtile和allArticles里面的标签的修改----缺
+     [types.TAG_MODIFY](state, { tag, id }){
+        
+        let nowTag = state.allTags.find(o => o._id === id);
+        nowTag.name = tag.name;
      }
 };
 const actions = {
+    //修改某个标签
+    modifyTag({ commit }, { val, id}){
+        return new Promise((resolve, reject) => {
+            T.modifyTag(id, { name: val })
+                .then(res => {
+                    if(res.data.code === 200){
+                        let tag = res.data.data;
+                        commit(types.TAG_MODIFY, { tag, id });
+                        resolve(tag);
+                    }
+                })
+                .catch(err => {
+                    reject(err);
+                })
+        });
+    },
+    //获得所有标签
+    getAllTags({ commit }){
+        return new Promise((resolve, reject) => {
+            T.getAllTags()
+                .then(res => {
+                    if(res.data.code === 200){
+                        let tags = res.data.data;
+                        commit(types.TAG_GET_ALL, tags);
+                        resolve(tags);
+                    }
+                })
+                .catch(err => {
+                    reject(err);
+                });
+        });
+    },
     //删除文章:如果刚好删除的是当前文章，那么得清空state.currentArtile
     deleteArticle({ commit }, { id, index }){
         return new Promise((resolve, reject) => {

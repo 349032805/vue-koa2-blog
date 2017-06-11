@@ -30,3 +30,7 @@ export const EMPTY_DRAFT = 'EMPTY_DRAFT';
 export const TAG_CREATE = 'TAG_CREATE';
 //删除标签
 export const TAG_DELETE = 'TAG_DELETE';
+//获得所有标签
+export const TAG_GET_ALL = 'TAG_GET_ALL';
+//修改某个标签
+export const TAG_MODIFY = 'TAG_MODIFY';

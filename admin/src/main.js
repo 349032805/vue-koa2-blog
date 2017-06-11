@@ -7,7 +7,6 @@ import store from './store';
 
 //全局css
 import 'assets/stylus/index.styl';
-
 //引入Message组件,挂载到原型上
 import Message from 'components/Message';
 Vue.prototype.$message = (options) => {
