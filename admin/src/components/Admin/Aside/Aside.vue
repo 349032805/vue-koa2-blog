@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../assets/stylus/_setting';
+@import '../../../assets/stylus/_setting';
 
 .aside-nav
     height: 100%

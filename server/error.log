@@ -195,3 +195,432 @@
     at next (E:\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
     at module.exports (E:\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
     at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m16:10:50.01 <error> BadRequestError: 内容不能为空!
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at modifyMeInfo (C:\Users\sinner\Desktop\my-blog\server\controllers\me.js:35:13)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m16:11:06.60 <error> BadRequestError: 内容不能为空!
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at modifyMeInfo (C:\Users\sinner\Desktop\my-blog\server\controllers\me.js:35:13)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m16:12:55.29 <error> BadRequestError: 内容不能为空!
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at modifyMeInfo (C:\Users\sinner\Desktop\my-blog\server\controllers\me.js:35:13)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:43:37.20 <error> UnauthorizedError: invalid jwtSecret
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:24:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:43:51.26 <error> UnauthorizedError: invalid jwtSecret
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:24:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:44:09.11 <error> UnauthorizedError: invalid jwtSecret
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:24:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:44:16.95 <error> UnauthorizedError: invalid jwtSecret
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:24:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:48:26.74 <error> UnauthorizedError: invalid token
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:23:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:48:51.11 <error> UnauthorizedError: invalid token
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:23:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:49:07.12 <error> UnauthorizedError: invalid token
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:23:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:51:40.21 <error> UnauthorizedError: invalid token
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:23:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:52:48.66 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:53:17.53 <error> UnauthorizedError: expired token
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:23:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:53:18.91 <error> UnauthorizedError: expired token
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:23:22)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:06.45 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:11.74 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:20.32 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:31.52 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:34.03 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:37.25 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:40.04 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:42.80 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:50.91 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:53.55 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:55.74 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m18:58:58.16 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m19:01:06.35 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m19:01:08.59 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m19:01:14.52 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m19:01:15.41 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m19:01:29.17 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m19:01:35.64 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m19:11:14.60 <error> UnauthorizedError: no token detected in http header Authorization
+    at Object.throw (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\checkToken.js:26:18)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\my-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\my-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m

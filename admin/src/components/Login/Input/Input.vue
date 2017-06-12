@@ -24,11 +24,6 @@ export default {
             }
        }
     },
-    data(){
-        return {
-
-        }
-    },
     methods: {
         focusEvent(){
             let oTitle = this.$refs.title;
@@ -82,6 +77,6 @@ export default {
         bottom: 0
         width: 0
         height: 2px
-        background: #2384ea
+        background: #F09313
         transition: all 0.3s ease-in-out .1s    
 </style>

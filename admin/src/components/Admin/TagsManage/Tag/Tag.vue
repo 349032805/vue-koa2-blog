@@ -76,7 +76,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../assets/stylus/_setting';
+@import '../../../../assets/stylus/_setting';
 
 .tag
     position: relative

@@ -47,7 +47,7 @@ class UserController{
             }
         }else{
             return ctx.success({
-                msg: '用户名错误!',
+                msg: '用户名不存在!',
                 success: false
             })
         }
@@ -61,7 +61,9 @@ class UserController{
     }
     //更新用户资料(到时再看看需要记录什么资料信息)
     static async updateUserMes(ctx){
-
+        ctx.success({
+            msg: '通过!'
+        });
     }
     //重置密码
     static async resetPwd(ctx){

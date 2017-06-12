@@ -9,9 +9,9 @@
 </template>
 
 <script>
-import ArticleList from 'components/ArticleList/ArticleList';
-import A from '../../axios/article.js';
-import Loading from 'components/Loading/Loading';
+import ArticleList from './ArticleList/ArticleList';
+import A from '../../../axios/article.js';
+import Loading from 'components/common/Loading/Loading';
 import { mapState } from 'vuex';
 
 export default {

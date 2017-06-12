@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../assets/stylus/_setting.styl'
+@import '../../../../assets/stylus/_setting.styl'
 
 .list-wrapper
     .search

@@ -6,12 +6,12 @@ const state = {
 };
 //注册事件类型
 const mutations = {
-    [types.TOKEN_CREATE]: ({ token }, val) => {
-        token = val;
+    [types.TOKEN_CREATE]: (state, val) => {
+        state.token = val;
         sessionStorage.setItem('blog-token', val);
     },
-    [types.TOKEN_DELETE]: ({ token }) => {
-        token = null;
+    [types.TOKEN_DELETE]: (state) => {
+        state.token = null;
         sessionStorage.removeItem('blog-token');
     }
 };
@@ -20,21 +20,20 @@ const actions = {
     createToken({ commit }, { username, password }){
         return new Promise((resolve, reject) => {
             L.adminLogin({ username, password})
-                .then(response => {
-                    console.log(response);
-                    let result = response.data;
-                    if(result.success === true){
-                        let token = result.data.token;
-                        console.log('登录成功返回的token:' + token);
+                .then(res => {
+                    //登录成功
+                    if(res.data.success === true){
+                        let token = res.data.data.token;
                         commit(types.TOKEN_CREATE, token);
-                    }else{
-                        commit(types.TOKEN_DELETE);
+                        resolve(res.data.success);
                     }
-                    //resolve出去，这样能在组件中知道该action什么时候结束
-                    resolve(response);
+                    //登录失败： 用户名或密码错误
+                    if(res.data.success === false){
+                        commit(types.TOKEN_DELETE);
+                        resolve(res.data.success)
+                    }
                 })
                 .catch(err => {
-                    console.log('actions登录请求错误');
                     reject(err);
                 });
         });

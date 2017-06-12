@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import Tag from 'components/tag/tag';
-import Loading from 'components/Loading/Loading';
+import Tag from './Tag/Tag';
+import Loading from 'components/common/Loading/Loading';
 import { mapState } from 'vuex';
 
 export default {
@@ -91,7 +91,7 @@ export default {
 
 
 <style lang="stylus" scoped>
-@import '../../assets/stylus/_setting';
+@import '../../../assets/stylus/_setting';
 .tags-wrapper
     width: calc(100% + 20px)
     height: 100%

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Input from 'components/Input/Input'
+import Input from './Input/Input'
 
 export default {
     data(){
@@ -22,7 +22,52 @@ export default {
     },
     methods: {
         login(){
-            console.log('click')
+            if(this.username === ''){
+                this.$message({
+                    type: 'warning',
+                    message: '用户名不能为空!'
+                });
+                return;
+            }
+            if(this.password === ''){
+                this.$message({
+                    type: 'warning',
+                    message: '密码不能为空!'
+                });
+                return;
+            }
+            let username = this.username;
+            let password = this.password;
+            this.$store.dispatch('createToken', { username, password})
+                .then(res => {
+                    if(res === true){
+                        let redirectUrl = '';
+                        if(this.$route.query.redirect){
+                            redirectUrl = decodeURIComponent(this.$route.query.redirect);
+                        }else{
+                            redirectUrl = '/admin/article';
+                        }
+                        this.$router.push({
+                            path: redirectUrl
+                        });
+
+                        this.$message({
+                            type: 'success',
+                            message: '登录成功!'
+                        });
+                    }else{
+                        this.$message({
+                            type: 'error',
+                            message: '用户名或密码错误!'
+                        });
+                    }
+                })
+                .catch(err => {
+                    this.$message({
+                            type: 'error',
+                            message: '登录失败!'
+                        });
+                });
         }
     }
 }

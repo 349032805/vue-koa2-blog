@@ -37,8 +37,6 @@ import Simplemde from 'simplemde';
 import marked from 'assets/js/marked.js';
 //引入辅助函数
 import { mapState } from 'vuex';
-//引入防抖函数，自动保存文章需用到
-import debounce from 'assets/js/debounce.js';
 //当前的全局变量
 let simplemde;
 
@@ -80,7 +78,7 @@ export default {
         }else{
             next(vm => {
                 //slice(0)是避免赋值的是引用。
-                //每次路由进来都得更闹心tagArr。那么在标签管理页
+                //每次路由进来都得更新tagArr。
                 vm.tagArr = vm.currentArticle.tags.slice(0);
             });
         }
@@ -104,7 +102,7 @@ export default {
         });
         //按下ctrl+s就保存文章
         simplemde.codemirror.on('keydown', (cm, e) => {
-            if( e.ctrlKey  == true && e.keyCode == 83 ){
+            if( e.ctrlKey  == true && e.keyCode === 83 ){
                 //保存文章并阻止浏览器保存页面的默认事件
                 this.saveArticle();
                 e.preventDefault();
@@ -315,9 +313,9 @@ export default {
 // 引入双屏时预览时右屏的样式
 // 引入只针对code代码的样式
 
-@import '../../assets/stylus/markdown.styl';
-@import '../../assets/stylus/preview.styl';
-@import '../../assets/stylus/code.styl';
+@import '../../../assets/stylus/markdown.styl';
+@import '../../../assets/stylus/preview.styl';
+@import '../../../assets/stylus/code.styl';
 
 .CodeMirror-fullscreen
         background-color: #F9F9F5
@@ -326,7 +324,7 @@ export default {
 </style>
 
 <style lang="stylus" scoped>
-@import '../../assets/stylus/_setting.styl';
+@import '../../../assets/stylus/_setting.styl';
 .article-wrapper
     width: calc(100% + 20px)
     height: 100%

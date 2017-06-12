@@ -1,3 +1,10 @@
 @import './reset'
-@import './iconfont'
-@import './basic'
+@import './_setting'
+
+html,body
+    font-family: $body-font
+    font-size: $body-font-size
+    color: $body-font-color
+    overflow: hidden //有必要干掉浏览器原生<html>的滚动条---内滚动布局
+ul li
+    list-style: none

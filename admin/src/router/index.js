@@ -1,15 +1,16 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import store from '../store/index.js'
 
 Vue.use(Router);
 
 //路由懒加载
 const Admin = resolve => require(['components/Admin/Admin'], resolve);
 const Login = resolve => require(['components/Login/Login'], resolve);
-import Article from 'components/Article/Article';
-import Tags from 'components/Tags/Tags';
-import Me from 'components/Me/Me';
-import ArticleManage from 'components/ArticleManage/ArticleManage';
+const ArticleEdit = resolve => require(['components/Admin/ArticleEdit/ArticleEdit'], resolve);
+const ArticlesManage = resolve => require(['components/Admin/ArticlesManage/ArticlesManage'], resolve);
+const Me = resolve => require(['components/Admin/Me/Me'], resolve);
+const TagsManage = resolve => require(['components/Admin/TagsManage/TagsManage'], resolve);
 
 const router = new Router({
   mode: 'history',
@@ -17,47 +18,61 @@ const router = new Router({
     {
       path: '/admin',
       component: Admin,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      redirect: '/admin/article',
+      meta: {
+        requiresAuth: true
+      },
       children: [
         {
           path: 'article',
-          component: Article
+          component: ArticleEdit,
+          meta: {
+            requiresAuth: true
+          }
         },
         {
           path: 'list',
-          component: ArticleManage
+          component: ArticlesManage,
+          meta: {
+            requiresAuth: true
+          }
         },
         {
           path: 'tags',
-          component: Tags
+          component: TagsManage,
+          meta: {
+            requiresAuth: true
+          }
         },
         {
           path: 'me',
-          component: Me
+          component: Me,
+          meta: {
+            requiresAuth: true
+          }
         }
       ]
     },
     {
-      path: '/admin/login',
+      path: '/login',
       component: Login
     },
     {
       path: '*',
-      redirect:  '/admin/login'
+      redirect:  '/login'
     }
   ]
 });
 
 //在全局导航钩子中检查 meta 字段
 router.beforeEach((to, from, next) => {
+  let token = store.state.token.token;
   if(to.meta.requiresAuth){
-    if(false){    //vuexY
-
+    if(token){
+      return next();
     }
     next({
-      path: '/admin/login',
+      path: '/login',
       query: { redirect: to.fullPath }
     })
   }else{
