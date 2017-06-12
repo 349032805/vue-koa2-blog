@@ -78,7 +78,11 @@ export default {
                 });
             });
         }else{
-            next();
+            next(vm => {
+                //slice(0)是避免赋值的是引用。
+                //每次路由进来都得更闹心tagArr。那么在标签管理页
+                vm.tagArr = vm.currentArticle.tags.slice(0);
+            });
         }
     },
     mounted(){
@@ -281,7 +285,7 @@ export default {
         deleteTag(id, index){
             this.$confirm('此操作将永久删除该标签,是否继续?', '提示')
                 .then(() => {
-                    this.$store.dispatch('deleteTag', {id, index})
+                    this.$store.dispatch('deleteTag', id)
                         .then(res => {
                             if(res){
                                 this.tagArr.splice(index, 1);
@@ -292,7 +296,7 @@ export default {
                             }
                         })
                         .catch(err => {
-                            cosole.log('删除标签失败！');
+                            console.log('删除标签失败！');
                             this.$message({
                                 type: 'error',
                                 message: '删除失败！'

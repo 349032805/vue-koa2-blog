@@ -37,6 +37,14 @@ export default {
             if(val === this.tagName){
                 return;
             }
+            if(val === ''){
+                this.$message({
+                    type: 'warning',
+                    message: '标签内容不能为空!'
+                });
+                this.enter = false;
+                return;
+            }
             this.$confirm('此操作将修改该标签,是否继续?', '提示')
                 .then(() => {
                     this.$refs['tagInput'].value = val;

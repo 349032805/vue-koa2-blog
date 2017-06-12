@@ -21,14 +21,31 @@ const mutations = {
     //创建标签，并push进currentArticle.tags里面-----缺
      [types.TAG_CREATE](state, tag){
          state.currentArticle.tags.push(tag);
+         if(!state.allTags.some(o => o._id === tag._id)){
+            state.allTags.push(tag);
+         }
         //  if(state.currentArticle._id !== -1){ //如果当前存在文章
         //      console.log(22222);
         //      state.allArticles[state.currentArticle.index].tags.push(tag);
         //  }
      },
      //删除标签,index是要删除tag在currentArticle.tags里面的索引-----缺
-     [types.TAG_DELETE](state, index){
-         state.currentArticle.tags.splice(index, 1);
+     [types.TAG_DELETE](state, id){
+         let inCurArticleTagsIndex = state.currentArticle.tags.findIndex(o => o._id === id);
+         if(inCurArticleTagsIndex >= 0){
+            state.currentArticle.tags.splice(inCurArticleTagsIndex, 1);
+         }      
+         let inAllTagsIndex = state.allTags.findIndex(o => o._id === id);
+         if(inAllTagsIndex >= 0){
+            state.allTags.splice(inAllTagsIndex, 1);
+         }
+         //那需要检查所有跟该tag有关联的文章
+        state.allArticles.forEach(article => {
+            let index = article.tags.findIndex(o => o._id === id);
+            if(index >= 0){
+                article.tags.splice(index, 1);
+            }
+        });
          //如果当前currentArticle.id != -1,说明是存在文章的
          //而state.allArticles[state.currentArticle].tags和state.currentArticle.tags
          //是指向同一引用的。所以删state.currentArticle.tags即可
@@ -137,7 +154,16 @@ const mutations = {
      },
      //修改某个标签同时还需同currentArtile和allArticles里面的标签的修改----缺
      [types.TAG_MODIFY](state, { tag, id }){
-        
+        //如果存在当前文章，则需检查它的tags数组有没有我们修改的tag
+        if(state.currentArticle._id !== -1){
+            let currentTag = state.currentArticle.tags.find(o => o._id === id);
+            currentTag.name = tag.name;
+        }
+        //那需要检查所有跟该tag有关联的文章
+        state.allArticles.forEach(article => {
+            let inTag = article.tags.find(o => o._id === id);
+            inTag.name = tag.name;
+        });
         let nowTag = state.allTags.find(o => o._id === id);
         nowTag.name = tag.name;
      }
@@ -280,7 +306,6 @@ const actions = {
                 .then( res => {
                     if(res.data.code === 200){
                         let tagData = res.data.data;
-                        console.log(`创建${ tagData.name }标签成功!`);
                         //这里为什么需要先发请求去创建标签，而不是等文章写完统一发请求上去，主要是后台创建文章的接口，需要tag的id
                         commit(types.TAG_CREATE, tagData);
                         resolve(tagData);
@@ -292,14 +317,13 @@ const actions = {
          });   
      },
      //删除标签
-     deleteTag({ commit }, {id, index}){
-         return new Promise((resolve, rejevt) => {
+     deleteTag({ commit }, id){
+         return new Promise((resolve, reject) => {
              T.deleteTag(id)
                .then(res => {
                    if(res.data.code === 200){
                        let data = res.data.data;
-                       console.log(`删除${ id }标签成功!`);
-                       commit(types.TAG_DELETE, index);
+                       commit(types.TAG_DELETE, id);
                        resolve(data);
                    }
                })

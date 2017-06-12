@@ -3,6 +3,7 @@
         <div class="tags">
             <v-tag v-for="(item, index) in tags" :tagName="item" :index="index"
             @changeValue="changeTag"
+            @deleteTag="deleteTag"
             ></v-tag>
         </div>
         <v-loading v-show="loading"></v-loading>
@@ -60,6 +61,25 @@ export default {
                         message: '修改标签失败!'
                     });
                 });
+        },
+        deleteTag(index){
+            let id = this.allTags[index]._id;
+            this.$store.dispatch('deleteTag', id)
+                        .then(res => {
+                            if(res){
+                                this.$message({
+                                    type: 'success',
+                                    message: '该标签删除成功！'
+                                });
+                            }
+                        })
+                        .catch(err => {
+                            console.log('删除标签失败！');
+                            this.$message({
+                                type: 'error',
+                                message: '删除失败！'
+                            });
+                        });
         }
     },
     components: {
