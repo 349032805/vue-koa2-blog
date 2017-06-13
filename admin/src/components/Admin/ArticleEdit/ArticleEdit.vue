@@ -91,7 +91,8 @@ export default {
             placeholder: "Press Ctrl+S to save the article...",
             previewRender: function(plainText) {
                 return marked(plainText); // Returns HTML from a custom parser
-            }
+            },
+            tabSize: 4
         });
         //监听编辑器内容change事件
         simplemde.codemirror.on("change", () => {
