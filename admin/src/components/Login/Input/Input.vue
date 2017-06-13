@@ -1,7 +1,8 @@
 <template>
     <div class="input-wrapper">
         <label ref="title" :for="title" class="input-label">{{ title }}</label>
-        <input autocomplete="new-password" :type="type" @focus.stop="focusEvent" @blur.stop="blurEvent" :value="value" @input="inputEvent($event.target.value)" :id="title">
+        <input autocomplete="new-password" :type="type" @focus.stop="focusEvent" @blur.stop="blurEvent" :value="value" @input="inputEvent($event.target.value)" :id="title"
+        @keyup.enter="keyupEvent">
         <div class="line" ref="line"></div>
     </div>
 </template>
@@ -47,6 +48,9 @@ export default {
         },
         inputEvent(val){
             this.$emit('input', val);
+        },
+        keyupEvent(){
+            this.$emit('enter');
         }
     }
 }

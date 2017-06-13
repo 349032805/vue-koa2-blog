@@ -23,6 +23,8 @@ export const ARTICLE_PUBLISH = 'ARTICLE_PUBLISH';
 export const ARTICLE_NOT_PUBLISH = 'ARTICLE_NOT_PUBLISH';
 //清空草稿
 export const EMPTY_DRAFT = 'EMPTY_DRAFT';
+//用户登出：清空所有state
+export const RESET = 'RESET';
 
 
 //tag

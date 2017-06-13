@@ -29,6 +29,7 @@ export default {
             this.$confirm('此操作将退出该博客管理系统,是否继续?', '提示')
                 .then(() => {
                     this.$store.commit('TOKEN_DELETE');
+                    this.$store.commit('RESET');
                     if(!this.$store.state.token.token){
                         this.$router.push('/login');
                         this.$message({

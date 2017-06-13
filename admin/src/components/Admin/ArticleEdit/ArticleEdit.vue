@@ -85,6 +85,8 @@ export default {
     },
     mounted(){
         simplemde = new Simplemde({
+            autoDownloadFontAwesome:false,
+            spellChecker:false,
             element: document.getElementById('editor'),
             placeholder: "Press Ctrl+S to save the article...",
             previewRender: function(plainText) {

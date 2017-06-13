@@ -18,6 +18,19 @@ const state = {
 };
 
 const mutations = {
+    //用户登出
+    [types.RESET](state){
+        state.currentArticle._id = -1;
+        state.currentArticle.index = -1;
+        state.currentArticle.abstract = '';
+        state.currentArticle.content = '';
+        state.currentArticle.title = '';
+        state.currentArticle.tags = [];
+        state.currentArticle.publish = false;
+        state.currentArticle.save = false;
+        state.allArticles = [];
+        state.allTags = [];
+    },
     //创建标签，并push进currentArticle.tags里面-----缺
      [types.TAG_CREATE](state, tag){
          state.currentArticle.tags.push(tag);

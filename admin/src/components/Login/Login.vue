@@ -1,14 +1,13 @@
 <template>
     <div class="login-wrapper">
         <v-input v-model="username" title="username"></v-input>
-        <v-input v-model="password" title="password" type="password"></v-input>
+        <v-input v-model="password" title="password" type="password" @enter="login"></v-input>
         <button @click.stop="login">登录</button>
     </div>
 </template>
 
 <script>
-import Input from './Input/Input'
-
+import Input from './Input/Input';
 export default {
     data(){
         return {

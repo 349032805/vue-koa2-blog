@@ -20,7 +20,7 @@ marked.setOptions({
   smartypants: true, //使用更为时髦的标点，比如在引用语法中加入破折号。
   highlight: function(code, lang) {
     if(!lang){
-      return;
+      return hljs.highlightAuto(code).value;
     }
     if(languages.indexOf(lang) === -1){ //改语言没注册,也可以自动高量它
       return hljs.highlightAuto(code).value;

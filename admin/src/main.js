@@ -5,8 +5,12 @@ import App from './App';
 import router from './router';
 import store from './store';
 import './axios/interceptors.js';
+
 //全局css
 import 'assets/stylus/index.styl';
+
+//markdown用的font-awesome
+import 'assets/stylus/font-awesome.min.styl';
 
 //引入Message组件,挂载到原型上
 import Message from 'components/common/Message';
