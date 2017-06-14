@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-Vue.use(Router);
+Vue.use(Router);          
 
 const ArticleList = resolve => require(['components/ArticleList/ArticleList'], resolve);
 const Tags = resolve => require(['components/Tags/Tags'], resolve);
@@ -9,6 +9,7 @@ const Archives = resolve => require(['components/Archives/Archives'], resolve);
 const About = resolve => require(['components/About/About'], resolve);
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/articles',
@@ -24,7 +25,7 @@ export default new Router({
     },
     {
       path: '/about',
-      compoent: About
+      component: About
     }
   ]
 })

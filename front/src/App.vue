@@ -1,9 +1,9 @@
 <template>
     <div id="app">
         <v-header></v-header>
-        <session class="container">
+        <main class="container">
             <router-view></router-view>
-        </session>
+        </main>
         <v-footer></v-footer>                  
     </div>        
 </template>
@@ -21,5 +21,18 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+@import 'assets/stylus/_setting.styl';
+#app
+    height: 100%
+    .container
+        box-sizing: border-box
+        max-width: 1000px
+        min-height: 100%
+        margin: 0 auto
+        margin-bottom: -60px
+        padding-top: 60px
+        &:after
+            content: ""
+            height: 60px
+            display: block
 </style>

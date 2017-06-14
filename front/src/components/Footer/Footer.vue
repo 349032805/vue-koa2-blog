@@ -1,7 +1,8 @@
 <template>
-  <div>
-    footer
-  </div>
+    <footer>
+      <p>Copyright © <a href='https://github.com/sinner77' target="_blank">sinner77</a>&nbsp;&nbsp;2017 </p>
+      <p>Created by <a href="https://github.com/sinner77/my-blog" target="_blank">vue-koa-blog</a></p>
+    </footer>
 </template>
 
 <script>
@@ -11,5 +12,16 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+@import '../../assets/stylus/_setting.styl';
+footer
+  height: 60px
+  font-size: 14px
+  text-align: center
+  color: #bfbfbf
+  line-height: 20px
+  a 
+    text-decoration: none
+    color: $green
+    &:hover
+      text-decoration: underline
 </style>
