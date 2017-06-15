@@ -30,7 +30,7 @@ export default {
         min-height: 100%
         margin: 0 auto
         margin-bottom: -60px
-        padding-top: 60px
+        padding: 100px 20px 0 20px
         &:after
             content: ""
             height: 60px

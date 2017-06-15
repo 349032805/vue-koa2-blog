@@ -1,10 +1,12 @@
 <template>
   <header>
     <nav class="nav cf">
-      <div class="nav-logo">
-        <span class="name">sinner77</span>
-        <span class="sign">简单是我最爱</span>
-      </div>
+      <a href="/">
+        <div class="nav-logo">
+          <span class="name">twinkle</span>
+          <span class="sign">外表平静如水，内心坚定如山。</span>
+        </div>
+      </a>
       <ul class="nav-list">
         <li><router-link to="/articles" active-class="active" class="hover-underline">文章</router-link></li>
         <li><router-link to="/tags" active-class="active" class="hover-underline">标签</router-link></li>
@@ -31,6 +33,7 @@ header
   right: 0
   background-color: #fff
   box-shadow: 0 0 4px rgba(0,0,0,.25)
+  font-family: 'logoFont'
   .nav
     max-width: 1000px
     margin: 0 auto
@@ -40,8 +43,12 @@ header
       span
         display: block
       span.name
-        height: 30px
-        line-height: 40px
+        height: 36px
+        font-size: 31px
+        padding-left: 6px
+        font-family: 'Dancing in the Rainbow'
+      span.sign
+        font-size: 20px
     .nav-list
       float: right
       font-size: 0
@@ -51,7 +58,8 @@ header
         height: 60px
         line-height: 60px
         font-weight: 700
-        margin: 0 5px
+        margin: 0 5px 
+        font-size: 20px
         a.active::before 
           background-color: $green
           transform: scaleX(1)
