@@ -1,19 +1,14 @@
 <template>
   <div class="articles-list">
-    <article v-for="item in 5" class="border-1px">
+    <article v-for="item in articles" class="border-1px">
       <header>
-        <h1 class="title"><a href="" class="hover-underline">浏览器渲染详细过程：重绘、重排和composite只是冰山一角</a></h1>
-        <p class="createTime">2017-04-10 01:10:09</p>
+        <h1 class="title"><a href="" class="hover-underline">{{ item.title }}</a></h1>
+        <p class="createTime">{{ item.createTime }}</p>
       </header>
-      <p class="content">
-        在之前的一篇文章中：Vue源码详解之nextTick：MutationObserver只是浮云，microtask才是核心！，我说过，偶然在一次对task和microtask的讨论当中，研究到了浏览器在处理完task和microtask之后执行的渲染机制，当时看到这个内容，还是挺激动的，因为以前从来不知道我在js里更改的样式，浏览器到底是什么时候、以怎样的方式渲染到界面上的，于是兴奋的写下了上述文章。
-
-最近深入研究了这部分，发现这里有一片更广阔的新大陆，在我们耳熟能详的重排、重绘、composite、合成层提升等概念下还有更深的的东西。这篇文章将会介绍浏览器的详细渲染过程。
-      </p>
+      <p class="markdown" v-html="parser(item.abstract)"></p>
       <ul class="tags">
         <i class="iconfont icon-tag1"></i>
-        <li>node.js</li>
-        <li>javascript</li>
+        <li v-for="tag in item.tags">{{ tag.name }}</li>
       </ul>
       <footer>
         <a class="continue hover-underline" href="">...read more</a>
@@ -23,14 +18,38 @@
 </template>
 
 <script>
+import api from '../../api';
+import marked from '../../assets/js/marked.js';
+
 export default {
-  
+  data(){
+    return {
+      articles: []
+    }
+  },
+  created(){
+     api.getArticlesByPage(1, 5)
+        .then(res => {
+          if(res.data.code === 200){
+            this.articles = res.data.data.slice(0);
+          }
+        })
+        .catch(err => {
+          console.log('获取文章失败！');
+        });
+  },
+  methods: {
+    parser(value){
+      return marked(value);
+    }
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
 @import '../../assets/stylus/_setting.styl';
 @import '../../assets/stylus/mixin.styl';
+
 
 .articles-list
   max-width: 850px

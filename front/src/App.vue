@@ -19,7 +19,10 @@ export default {
     }
 }
 </script>
-
+<style lang="stylus">
+@import 'assets/stylus/md.styl';
+@import 'assets/stylus/code.styl';
+</style>
 <style lang="stylus" scoped>
 @import 'assets/stylus/_setting.styl';
 #app

@@ -1,0 +1,72 @@
+[31m[1m19:28:56.39 <error> UnauthorizedError: expired token
+    at Object.throw (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\vue-koa2-blog\server\middlewares\checkToken.js:23:22)
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\vue-koa2-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m19:34:46.32 <error> BadRequestError: 摘要不能为空!
+    at Object.throw (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at createArticle (C:\Users\sinner\Desktop\vue-koa2-blog\server\controllers\article.js:16:22)
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\vue-koa2-blog\server\middlewares\checkToken.js:28:11)
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\vue-koa2-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m20:59:37.58 <error> InternalServerError: 服务器内部错误-数据查找错误!
+    at Object.throw (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (C:\Users\sinner\Desktop\vue-koa2-blog\server\controllers\article.js:47:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m20:59:46.68 <error> UnauthorizedError: expired token
+    at Object.throw (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\vue-koa2-blog\server\middlewares\checkToken.js:23:22)
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\vue-koa2-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m21:02:29.23 <error> UnauthorizedError: expired token
+    at Object.throw (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\vue-koa2-blog\server\middlewares\checkToken.js:23:22)
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\vue-koa2-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m22:37:20.54 <error> UnauthorizedError: expired token
+    at Object.throw (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at module.exports (C:\Users\sinner\Desktop\vue-koa2-blog\server\middlewares\checkToken.js:23:22)
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:345:16
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:36:12
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-router@7.2.0@koa-router\lib\router.js:350:31)
+    at dispatch (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:44:32)
+    at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
+    at module.exports (C:\Users\sinner\Desktop\vue-koa2-blog\server\middlewares\initAdmin.js:30:11)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m

@@ -1,17 +1,11 @@
 <template>
   <div class="archives-list">
     <h2>归档</h2>
-    <div class="archives-content" v-for="item in 11">
-      <h3>2017年05月 (1)</h3>
+    <div class="archives-content" v-for="(item, key, index) in archives">
+      <h3>{{ key }} ({{ item.length }})</h3>
       <ul>
-        <li>
-          <a class="title" href="#">vue2服务端渲染：直连数据库的首屏优化策略</a><span class="createTime">2017-05-05</span>
-        </li>
-        <li>
-          <a class="title" href="#">vue2服务端渲染：直连数据库的首屏优化策略</a><span class="createTime">2017-05-05</span>
-        </li>
-        <li>
-          <a class="title" href="#">vue2服务端渲染：直连数据库的首屏优化策略</a><span class="createTime">2017-05-05</span>
+        <li v-for="article in item">
+          <router-link :to="'/articles' + article._id" >{{ article.title }}</router-link><span class="createTime">{{ article.createTime }}</span>
         </li>
       </ul>
     </div>
@@ -19,8 +13,35 @@
 </template>
 
 <script>
+import api from '../../api';
+
 export default {
-  
+  data(){
+    return {
+      archives: {}
+    }
+  },
+  created(){
+    api.getAllArticles()
+      .then(res => {
+        if(res.data.code === 200){
+          let data = res.data.data;
+          let archives = data.reduce((prev, curr) => {
+            let time = curr.createTime.slice(0, 7).replace(' ', '年');
+            if(typeof prev[time] === 'undefined'){
+              prev[time] = [curr];
+            }else{
+              prev[time].push(curr)
+            }
+            return prev;
+          }, {});
+          this.archives = archives;
+        }
+      })
+      .catch(err => {
+        console.log('获取文章失败！');
+      });
+  }
 }
 </script>
 
@@ -42,7 +63,7 @@ export default {
         font-weight: 700
         list-style: disc
         margin: 20px
-       a.title
+       a
         color: $green
         padding-right: 10px
        span.createTime

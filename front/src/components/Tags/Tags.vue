@@ -3,20 +3,14 @@
     <div class="tags-wrapper">
       <h2>All Tags</h2>
       <ul>
-        <li v-for="item in 30"><a href="#">标签{{item}}</a></li>
+        <li v-for="tag in tags"><a href="javascript:;" @click="scrollTo(tag._id)">{{ tag.name }}</a></li>
       </ul>
     </div>
-    <div class="tags-article" v-for="item in 10">
-      <h3>标签一</h3>
+    <div class="tags-article" v-for="item in tagArticle" :id="item.id">
+      <h3>{{ item.name }}</h3>
       <ul>
-        <li>
-          <a href="#"><span class="title">Vue源码详解:compile,link,依赖,批处理...一网打尽，全解析! </span></a>
-        </li>
-        <li>
-          <a href="#"><span class="title">Vue源码详解:compile,link,依赖,批处理...一网打尽，全解析! </span></a>
-        </li>
-        <li>
-          <a href="#"><span class="title">Vue源码详解:compile,link,依赖,批处理...一网打尽，全解析! </span></a>
+        <li v-for="article in item['articles']">
+          <router-link :to="'/articles/' + article._id"><span class="title">{{ article.title }}</span></router-link>
         </li>
       </ul>
     </div>
@@ -24,8 +18,49 @@
 </template>
 
 <script>
+import api from '../../api';
+import VueScrollTo from 'Vue-scrollto';
+
 export default {
-  
+  data(){
+    return {
+      tags: [],
+      tagArticle: []
+    }
+  },
+  created(){
+    api.getAllTags()
+      .then(res => {
+        if(res.data.code === 200){
+          let tags = res.data.data.slice(0);
+          this.tags = tags;
+          tags.forEach((o) => {
+            api.getArticleByTagId(o._id)
+              .then(res => {
+                if(res.data.code === 200){
+                  let obj = {};
+                  obj.name = o.name;
+                  obj.id = o._id;
+                  obj.articles = res.data.data;
+                  this.tagArticle.push(obj);
+                }
+              })
+              .catch(err => {
+                console.log('根据标签获取文章失败！');
+              });
+          });
+        }
+      })
+      .catch(err => {
+        console.log('获取所有标签错误！');
+      });
+  },
+  methods: {
+    scrollTo(id){
+      let obj = document.getElementById(id);
+      VueScrollTo.scrollTo(obj);
+    }
+  }
 }
 </script>
 
