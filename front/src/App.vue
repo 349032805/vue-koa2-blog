@@ -35,4 +35,13 @@ export default {
             content: ""
             height: 60px
             display: block
+@media screen and (max-width: 480px)
+  #app
+    .container
+        margin-bottom: -40px
+        padding: 85px 10px 0 10px
+        &:after
+            content: ""
+            height: 40px
+            display: block
 </style>

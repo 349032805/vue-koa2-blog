@@ -5,6 +5,7 @@
 
 html, body 
     font-family: $body-font
+    line-height: 1.5
     width: 100%
     height: 100%
     font-smoothing: antialiased
@@ -15,7 +16,7 @@ li
 a
 	color: #000
 	text-decoration: none
-
+//清除浮动
 .cf
     &:after
         display: block
@@ -24,7 +25,7 @@ a
         line-height: 0
         clear: both
         visibility: hidden
-
+//鼠标划过出现下划线
 .hover-underline
     position: relative
     &:before 
@@ -42,3 +43,20 @@ a
     &:hover::before, &:focus::before
         background-color: $green
         transform: scaleX(1)
+@media screen and (max-width: 768px)
+    .hover-underline
+      &:before
+        display: none
+      &:hover
+        border-bottom: 2px solid $green
+//解决retina屏幕下border-1px的问题
+@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio: 1.5)
+	.border-1px
+		&:after
+			-webkit-transform: scaleY(0.7)
+			transform: scaleY(0.7)
+@media (-webkit-min-device-pixel-ratio: 2.0),(min-device-pixel-ratio: 2.0)
+	.border-1px
+		&:afeter
+			-webkit-transform: scaleY(0.7)
+			transform: scaleY(0.7)			

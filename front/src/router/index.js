@@ -7,6 +7,7 @@ const ArticleList = resolve => require(['components/ArticleList/ArticleList'], r
 const Tags = resolve => require(['components/Tags/Tags'], resolve);
 const Archives = resolve => require(['components/Archives/Archives'], resolve);
 const About = resolve => require(['components/About/About'], resolve);
+const Article = resolve => require(['components/Article/Article'], resolve);
 
 export default new Router({
   mode: 'history',
@@ -25,7 +26,11 @@ export default new Router({
     },
     {
       path: '/about',
-      component: About
+      component: Article
+    },
+    {
+      path: '*',
+      redirect: '/articles'
     }
   ]
 })
