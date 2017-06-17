@@ -1,6 +1,7 @@
 <template>
-  <div class="article-warpper">
-      <article class="article">
+  <div class="article-warpper"  :class="{ 'noCatalog': !hasCatalog }">
+      <v-loading type="ring" v-show="loading"></v-loading>
+      <article class="article" v-show="!loading">
         <header>
           <h1 class="title">{{ article.title }}</h1>
           <ul class="tags">
@@ -13,11 +14,13 @@
           <p>发表于 <span class="createTime">{{ article.createTime }}</span> ,最后修改于 <span class="lastEditTime">{{ article.lastEditTime }}</span></p>
         </footer>
       </article>
-      <aside class="catalog">
-        目录
-        <ul>
-          <li v-for="item in catalog" :class="item.tagName"><a :href="item.href">{{ item.text }}</a></li>
-        </ul>
+      <aside class="catalog" v-if="hasCatalog" v-show="!loading">
+        <h3 class="catalog-title" @click="scrollToTop" title="返回顶部">文章目录<i class="iconfont icon-top"></i></h3>
+        <div class="catalog-wrapper">
+          <ul class="catalog-list">
+            <li v-for="item in catalog" :class="item.tagName" class="catalog-li"><a href="javascript:;" @click="scrollTo(item.href)">{{ item.text }}</a></li>
+          </ul>
+        </div>
       </aside>
   </div>
 </template>
@@ -25,12 +28,17 @@
 <script>
 import api from '../../api';
 import marked from '../../assets/js/marked';
+import Loading from 'components/Loading/Loading';
+//滚动组件
+import VueScrollTo from 'Vue-scrollto';
 
 export default {
   data(){
     return {
       article: {},
-      catalog: []
+      catalog: [],
+      hasCatalog: false,  //这个变量有来判断该文章有没有目录
+      loading: true
     }
   },
   watch: {
@@ -38,20 +46,18 @@ export default {
       let path = from.path;
       if(path === '/articles' || path === '/tags' || path === '/archives'){
         if(to.params.id){
+         this.loading = true;
+         this.catalog = [];
+         this.article = {};
           api.getArticleById(to.params.id)
             .then(res => {
-              this.article = res.data.data;
-              this.catalog = [];
-              this.$nextTick(() => {
-                Array.from(this.$refs['articleContent'].querySelectorAll('h1, h2, h3, h4, h5, h6')).forEach((item, i) => {
-                  item.id = item.localName + '-' + i
-                  this.catalog.push({
-                    tagName: item.localName,
-                    text: item.innerText,
-                    href: '#' + item.localName + '-' + i
-                  });
+              if(res.data.code === 200){
+                this.loading = false;
+                this.article = res.data.data;
+                this.$nextTick(() => {
+                  this.createCatalog();
                 });
-              });
+              }
             })
             .catch(err => {
               this.$router.push({
@@ -64,20 +70,15 @@ export default {
     }
   },
   created(){
-    // console.log(this.$route.params.id);
     api.getArticleById(this.$route.params.id)
       .then(res => {
-        this.article = res.data.data;
-        this.$nextTick(() => {
-          Array.from(this.$refs['articleContent'].querySelectorAll('h1, h2, h3, h4, h5, h6')).forEach((item, i) => {
-            item.id = item.localName + '-' + i
-            this.catalog.push({
-              tagName: item.localName,
-              text: item.innerText,
-              href: '#' + item.localName + '-' + i
-            });
+        if(res.data.code === 200){
+          this.loading = false;
+          this.article = res.data.data;
+          this.$nextTick(() => {
+            this.createCatalog();
           });
-        });
+        }
       })
       .catch(err => {
         this.$router.push({
@@ -88,7 +89,46 @@ export default {
   methods: {
     parser(value){
       return marked(value);
+    },
+    //生成目录
+    createCatalog(){
+      let nodeList = this.$refs['articleContent'].querySelectorAll('h1, h2, h3, h4, h5, h6');
+      if(nodeList.length === 0){
+        this.hasCatalog = false;
+        return;
+      }
+      this.hasCatalog = true;
+      Array.from(this.$refs['articleContent'].querySelectorAll('h1, h2, h3, h4, h5, h6')).forEach((item, i) => {
+        item.id = item.localName + '-' + i; //给标签设置id
+        this.catalog.push({
+          tagName: item.localName,
+          text: item.innerText,
+          href: item.localName + '-' + i     //href为上面所设置的id
+        });
+      });
+    },
+    //滚动到指定标题
+    scrollTo(id){
+      let obj = document.getElementById(id);
+      VueScrollTo.scrollTo(obj, {
+        onDone: function(){
+          obj.style.transform = 'scale(1.2)';
+          obj.style.webkitTransform = 'scale(1.2)';
+          obj.style.transition = 'all .5s';
+          obj.style.webkitTransition = 'all .5s';
+          obj.addEventListener('transitionend', function(){
+            this.style = '';
+          })
+        }
+      });
+    },
+    //返回顶部
+    scrollToTop(){
+      VueScrollTo.scrollTo('#app');
     }
+  },
+  components: {
+    'v-loading': Loading
   }
 }
 </script>
@@ -120,29 +160,70 @@ export default {
         font-size: 14px
         border-bottom: 1px dashed $green
   .catalog
+    box-shadow: 0px 1px 1px #7D7D7D
     position: fixed
     width: 220px
     top: 110px
-    bottom: 0
     left: 50%
     margin-left: 270px
-    ul
-      li.h1
-        margin-left: 0
-        list-style-type: disc
-      li.h2
-        margin-left: 0.7em
-        list-style-type: circle
-      li.h3
-        margin-left: 1.4em
-        list-style-type: square
-      li.h4
-        margin-left: 2.1em
-        list-style-type: disc
-      li.h5
-        margin-left: 2.8em
-        list-style-type: circle
-      li.h6
-        margin-left: 3.5em
-        list-style-type: square
+    .catalog-title
+      cursor: pointer
+      font-size: 18px
+      text-align: center
+      padding: 5px 0
+      border-bottom: 1px dashed #ddd
+    .catalog-wrapper
+      padding: 5px 0
+      max-height: 400px
+      padding-left: 20px
+      overflow-y: auto
+      ul.catalog-list
+        font-size: 14px
+        color: #bfbfbf
+        .catalog-li
+          a
+            color: #333
+            &:hover
+              color: $green
+        li.h1
+          margin-left: 0
+          list-style-type: disc
+        li.h2
+          margin-left: 0.7em
+          list-style-type: circle
+        li.h3
+          margin-left: 1.4em
+          list-style-type: square
+        li.h4
+          margin-left: 2.1em
+          list-style-type: disc
+        li.h5
+          margin-left: 2.8em
+          list-style-type: circle
+        li.h6
+          margin-left: 3.5em
+          list-style-type: square
+.noCatalog
+  max-width: 750px
+  margin: 0 auto
+  .article
+    margin-right: 0
+@media screen and (max-width: 950px)
+  .article-warpper
+    .article
+      margin-right: 210px
+    .catalog
+      margin-left: 250px
+@media screen and (max-width: 876px)
+  .article-warpper
+    .article
+      margin-right: 180x
+    .catalog
+      margin-left: 210px
+@media screen and (max-width: 768px)
+  .article-warpper
+    .article
+      margin-right: 0
+    .catalog
+      display: none
 </style>

@@ -36,6 +36,7 @@ export default {
         })
         .catch(err => {
           console.log('获取文章失败！');
+          alert('网络出现问题！');
         });
   },
   methods: {

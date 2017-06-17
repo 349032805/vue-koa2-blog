@@ -15,7 +15,7 @@
       </ul>
       <a href="javascript:;" id="pull" @click.stop="showNavAside = !showNavAside"><i class="iconfont icon-icon"></i></a>
     </nav>
-    <div class="nav-aside" :class="{'nav-aside-show': showNavAside}">
+    <div class="nav-aside" :class="{'nav-aside-show': showNavAside}" @click="closeNavAside($event)">
       <ul>
         <li><router-link to="/articles" active-class="active">文章</router-link></li>
         <li><router-link to="/tags" active-class="active">标签</router-link></li>
@@ -36,6 +36,14 @@ export default {
       '​​​​小时候，幸福是件很简单的事；长大后，简单是件很幸福的事。'
       ],
       showNavAside: false
+    }
+  },
+  methods: {
+    //点击隐藏
+    closeNavAside(e){
+      if(e.target.localName === 'a'){
+        this.showNavAside = false;
+      }
     }
   }
 }
@@ -96,8 +104,6 @@ header
         font-size: 25px
         a 
          display: block
-         &:active, &:focus
-          border-bottom: 2px solid $green
    .nav-aside-show 
     display: block
 //先让签名隐藏

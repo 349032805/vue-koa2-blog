@@ -1,17 +1,18 @@
 <template>
   <div class="tags-list">
-    <div class="tags-wrapper">
+    <v-loading v-show="loading" type="ring"></v-loading>
+    <div class="tags-wrapper" v-show="!loading">
       <h2 class="title">所有标签</h2>
       <ul class="tags">
-        <li v-for="tag in tags" class="tag"><a href="javascript:;" @click="scrollTo(tag._id)">{{ tag.name }}</a></li>
+        <li v-for="tag in tags" class="tag"><a href="javascript:;" @click="scrollTo(tag._id)" class="hover-underline">{{ tag.name }}</a></li>
       </ul>
     </div>
-    <div class="tags-article" v-for="item in tagArticle" :id="item.id">
+    <div class="tags-article" v-for="item in tagArticle" :id="item.id" v-show="!loading">
       <h3 class="title">{{ item.name }}</h3>
       <ul class="articles">
         <li v-for="article in item['articles']" class="article">
-          <router-link :to="'/articles/' + article._id"><span class="title">{{ article.title }}</span></router-link>
-          <span class="createTime">{{ article.createTime }}</span>
+          <router-link :to="'/articles/' + article._id"><span class="title hover-underline">{{ article.title }}</span></router-link>
+          <span class="createTime">{{ article.createTime | formatDate }}</span>
         </li>
       </ul>
     </div>
@@ -20,6 +21,7 @@
 
 <script>
 import api from '../../api';
+import Loading from 'components/Loading/Loading';
 //滚动组件
 import VueScrollTo from 'Vue-scrollto';
 
@@ -27,15 +29,23 @@ export default {
   data(){
     return {
       tags: [],
-      tagArticle: []
+      tagArticle: [],
+      loading: true
+    }
+  },
+  filters: {
+    formatDate(value){
+      return value.slice(0, 11);
     }
   },
   created(){
+    //先获取所有标签，再根据所有标签获取文章
     api.getAllTags()
       .then(res => {
         if(res.data.code === 200){
           let tags = res.data.data.slice(0);
           this.tags = tags;
+          this.loading = false;
           tags.forEach((o) => {
             api.getArticleByTagId(o._id)
               .then(res => {
@@ -49,28 +59,39 @@ export default {
               })
               .catch(err => {
                 console.log('根据标签获取文章失败！');
+                alert('网络出现问题！');
               });
           });
         }
       })
       .catch(err => {
         console.log('获取所有标签错误！');
+        alert('网络出现问题！');
       });
   },
   methods: {
+    //滚动到某处
     scrollTo(id){
       let obj = document.getElementById(id);
       VueScrollTo.scrollTo(obj);
     }
+  },
+  components: {
+    'v-loading': Loading
   }
 }
 </script>
 
 <style lang="stylus" scoped>
 @import '../../assets/stylus/_setting.styl';
+.fade-enter-active, .fade-leave-active
+  transition: opacity .3s ease
+.fade-enter, .fade-leave-to
+  opacity: 0
 .tags-list
   max-width: 850px
   margin: 0 auto
+  padding: 15px
   //列出所有标签部分
   .tags-wrapper
     .title
@@ -88,8 +109,15 @@ export default {
   //列出标签对应的文章
   .tags-article
     margin: 18px 0
-    .title
+    h3.title
+      position: relative
       font-size: 20px
+      &::before 
+          position: absolute
+          content: "#\0000a0"
+          color: $green
+          top: 0px 
+          left: -0.9em
     .articles
       padding: 5px
       .article

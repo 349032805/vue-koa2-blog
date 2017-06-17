@@ -2,7 +2,9 @@
     <div id="app">
         <v-header></v-header>
         <main class="container">
-            <keep-alive><router-view></router-view></keep-alive>
+            <transition name="fade">
+                <keep-alive><router-view></router-view></keep-alive>
+            </transition>
         </main>
         <v-footer></v-footer>                  
     </div>        
