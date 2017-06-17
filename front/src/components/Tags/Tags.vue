@@ -1,16 +1,17 @@
 <template>
   <div class="tags-list">
     <div class="tags-wrapper">
-      <h2>All Tags</h2>
-      <ul>
-        <li v-for="tag in tags"><a href="javascript:;" @click="scrollTo(tag._id)">{{ tag.name }}</a></li>
+      <h2 class="title">所有标签</h2>
+      <ul class="tags">
+        <li v-for="tag in tags" class="tag"><a href="javascript:;" @click="scrollTo(tag._id)">{{ tag.name }}</a></li>
       </ul>
     </div>
     <div class="tags-article" v-for="item in tagArticle" :id="item.id">
-      <h3>{{ item.name }}</h3>
-      <ul>
-        <li v-for="article in item['articles']">
+      <h3 class="title">{{ item.name }}</h3>
+      <ul class="articles">
+        <li v-for="article in item['articles']" class="article">
           <router-link :to="'/articles/' + article._id"><span class="title">{{ article.title }}</span></router-link>
+          <span class="createTime">{{ article.createTime }}</span>
         </li>
       </ul>
     </div>
@@ -19,6 +20,7 @@
 
 <script>
 import api from '../../api';
+//滚动组件
 import VueScrollTo from 'Vue-scrollto';
 
 export default {
@@ -67,32 +69,39 @@ export default {
 <style lang="stylus" scoped>
 @import '../../assets/stylus/_setting.styl';
 .tags-list
-  div.tags-wrapper
-    h2
+  max-width: 850px
+  margin: 0 auto
+  //列出所有标签部分
+  .tags-wrapper
+    .title
       font-size: 22px
       font-weight: 700
-    ul
+    .tags
       font-size: 0
-      li
+      .tag
         display: inline-block
         padding: 15px 10px 0 0
         a
           font-size: 20px
           font-weight: 700
           color: $green
-  div.tags-article
-    margin: 30px 0
-    h3
+  //列出标签对应的文章
+  .tags-article
+    margin: 18px 0
+    .title
       font-size: 20px
-      font-weight: 700
-    ul 
-      padding: 10px
-      li
+    .articles
+      padding: 5px
+      .article
         font-weight: 700
         list-style: disc
         margin: 20px
        span.title
         color: $green
+       span.createTime
+        color: $light
+        font-size: 14px
+        font-style: italic
 @media screen and (max-width: 480px)
   .tags-list
     div.tags-wrapper

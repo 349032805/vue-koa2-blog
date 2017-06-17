@@ -2,7 +2,7 @@
     <div id="app">
         <v-header></v-header>
         <main class="container">
-            <router-view></router-view>
+            <keep-alive><router-view></router-view></keep-alive>
         </main>
         <v-footer></v-footer>                  
     </div>        
@@ -20,7 +20,7 @@ export default {
 }
 </script>
 <style lang="stylus">
-@import 'assets/stylus/md.styl';
+@import 'assets/stylus/markdown.styl';
 @import 'assets/stylus/code.styl';
 </style>
 <style lang="stylus" scoped>

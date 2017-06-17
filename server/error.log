@@ -70,3 +70,70 @@
     at next (C:\Users\sinner\Desktop\vue-koa2-blog\server\node_modules\_koa-compose@3.2.1@koa-compose\index.js:45:18)
     at module.exports (C:\Users\sinner\Desktop\vue-koa2-blog\server\middlewares\initAdmin.js:30:11)
     at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:16:47.21 <error> TypeError: Cannot read property 'populate' of null
+    at getArticleById (E:\Desktop\vue-koa2-blog\server\controllers\article.js:49:21)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:17:17.27 <error> TypeError: Cannot read property 'populate' of null
+    at getArticleById (E:\Desktop\vue-koa2-blog\server\controllers\article.js:49:21)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:27:29.18 <error> TypeError: Cannot read property 'populate' of null
+    at getArticleById (E:\Desktop\vue-koa2-blog\server\controllers\article.js:49:21)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:27:35.28 <error> TypeError: Cannot read property 'populate' of null
+    at getArticleById (E:\Desktop\vue-koa2-blog\server\controllers\article.js:49:21)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:29:41.98 <error> TypeError: Cannot read property 'populate' of null
+    at getArticleById (E:\Desktop\vue-koa2-blog\server\controllers\article.js:49:21)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:29:43.79 <error> TypeError: Cannot read property 'populate' of null
+    at getArticleById (E:\Desktop\vue-koa2-blog\server\controllers\article.js:49:21)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:29:50.20 <error> TypeError: Cannot read property 'populate' of null
+    at getArticleById (E:\Desktop\vue-koa2-blog\server\controllers\article.js:49:21)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:30:51.01 <error> TypeError: Cannot read property 'populate' of null
+    at getArticleById (E:\Desktop\vue-koa2-blog\server\controllers\article.js:49:21)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:31:11.09 <error> TypeError: Cannot read property 'populate' of null
+    at getArticleById (E:\Desktop\vue-koa2-blog\server\controllers\article.js:49:21)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:37:41.21 <error> InternalServerError: 服务器内部错误-数据查找错误!
+    at Object.throw (E:\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (E:\Desktop\vue-koa2-blog\server\controllers\article.js:47:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:57:52.00 <error> InternalServerError: 服务器内部错误-数据查找错误!
+    at Object.throw (E:\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (E:\Desktop\vue-koa2-blog\server\controllers\article.js:47:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:58:00.08 <error> InternalServerError: 服务器内部错误-数据查找错误!
+    at Object.throw (E:\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (E:\Desktop\vue-koa2-blog\server\controllers\article.js:47:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m09:58:06.19 <error> InternalServerError: 服务器内部错误-数据查找错误!
+    at Object.throw (E:\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (E:\Desktop\vue-koa2-blog\server\controllers\article.js:47:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m10:00:12.62 <error> InternalServerError: 服务器内部错误-数据查找错误!
+    at Object.throw (E:\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (E:\Desktop\vue-koa2-blog\server\controllers\article.js:47:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m10:00:20.13 <error> InternalServerError: 服务器内部错误-数据查找错误!
+    at Object.throw (E:\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (E:\Desktop\vue-koa2-blog\server\controllers\article.js:47:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m10:00:31.19 <error> InternalServerError: 服务器内部错误-数据查找错误!
+    at Object.throw (E:\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (E:\Desktop\vue-koa2-blog\server\controllers\article.js:47:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m10:06:05.81 <error> InternalServerError: 服务器内部错误-数据查找错误!
+    at Object.throw (E:\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (E:\Desktop\vue-koa2-blog\server\controllers\article.js:47:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m10:11:42.11 <error> InternalServerError: 服务器内部错误-数据查找错误!
+    at Object.throw (E:\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (E:\Desktop\vue-koa2-blog\server\controllers\article.js:47:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m
+[31m[1m10:11:48.53 <error> InternalServerError: 服务器内部错误-数据查找错误!
+    at Object.throw (E:\Desktop\vue-koa2-blog\server\node_modules\_koa@2.2.0@koa\lib\context.js:91:23)
+    at Article.findById.catch (E:\Desktop\vue-koa2-blog\server\controllers\article.js:47:22)
+    at process._tickCallback (internal/process/next_tick.js:103:7) (in errorHandle.js:24)[22m[39m

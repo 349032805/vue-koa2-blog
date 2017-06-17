@@ -17,6 +17,10 @@ export default new Router({
       component: ArticleList
     },
     {
+      path: '/articles/:id',
+      component: Article
+    },
+    {
       path: '/tags',
       component: Tags
     },
@@ -26,7 +30,7 @@ export default new Router({
     },
     {
       path: '/about',
-      component: Article
+      component: About
     },
     {
       path: '*',

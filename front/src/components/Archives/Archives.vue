@@ -5,7 +5,7 @@
       <h3>{{ key }} ({{ item.length }})</h3>
       <ul>
         <li v-for="article in item">
-          <router-link :to="'/articles' + article._id" >{{ article.title }}</router-link><span class="createTime">{{ article.createTime }}</span>
+          <router-link :to="'/articles/' + article._id" >{{ article.title }}</router-link><span class="createTime">{{ article.createTime }}</span>
         </li>
       </ul>
     </div>

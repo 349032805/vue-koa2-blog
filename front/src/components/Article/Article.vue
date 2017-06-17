@@ -33,8 +33,39 @@ export default {
       catalog: []
     }
   },
+  watch: {
+    '$route'(to, from){
+      let path = from.path;
+      if(path === '/articles' || path === '/tags' || path === '/archives'){
+        if(to.params.id){
+          api.getArticleById(to.params.id)
+            .then(res => {
+              this.article = res.data.data;
+              this.catalog = [];
+              this.$nextTick(() => {
+                Array.from(this.$refs['articleContent'].querySelectorAll('h1, h2, h3, h4, h5, h6')).forEach((item, i) => {
+                  item.id = item.localName + '-' + i
+                  this.catalog.push({
+                    tagName: item.localName,
+                    text: item.innerText,
+                    href: '#' + item.localName + '-' + i
+                  });
+                });
+              });
+            })
+            .catch(err => {
+              this.$router.push({
+                path: '/articles'
+              })
+            });
+
+        }
+      }
+    }
+  },
   created(){
-    api.getArticleById('5943d724f8fa02638cd81206')
+    // console.log(this.$route.params.id);
+    api.getArticleById(this.$route.params.id)
       .then(res => {
         this.article = res.data.data;
         this.$nextTick(() => {
@@ -48,6 +79,11 @@ export default {
           });
         });
       })
+      .catch(err => {
+        this.$router.push({
+          path: '/articles'
+        })
+      });
   },
   methods: {
     parser(value){
@@ -58,6 +94,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '../../assets/stylus/_setting.styl';
 .article-warpper
   .article
     margin-right: 230px
@@ -81,7 +118,7 @@ export default {
       .createTime, .lastEditTime
         font-style: italic
         font-size: 14px
-        border-bottom: 1px dashed #333
+        border-bottom: 1px dashed $green
   .catalog
     position: fixed
     width: 220px

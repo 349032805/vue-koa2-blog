@@ -2,7 +2,7 @@
   <div class="articles-list">
     <article v-for="item in articles" class="border-1px">
       <header>
-        <h1 class="title"><a href="" class="hover-underline">{{ item.title }}</a></h1>
+        <h1 class="title"><router-link :to="'/articles/' + item._id" class="hover-underline">{{ item.title }}</router-link></h1>
         <p class="createTime">{{ item.createTime }}</p>
       </header>
       <p class="markdown" v-html="parser(item.abstract)"></p>
@@ -11,7 +11,7 @@
         <li v-for="tag in item.tags">{{ tag.name }}</li>
       </ul>
       <footer>
-        <a class="continue hover-underline" href="">...read more</a>
+        <router-link :to="'/articles/' + item._id" class="continue hover-underline">...read more</router-link>
       </footer>
     </article>
   </div> 
@@ -39,6 +39,7 @@ export default {
         });
   },
   methods: {
+    //解析markdown
     parser(value){
       return marked(value);
     }
@@ -49,8 +50,6 @@ export default {
 <style lang="stylus" scoped>
 @import '../../assets/stylus/_setting.styl';
 @import '../../assets/stylus/mixin.styl';
-
-
 .articles-list
   max-width: 850px
   margin: 0 auto
@@ -58,6 +57,7 @@ export default {
     margin-bottom: 30px
     border-1px(#ddd)
     padding-bottom: 3px
+    //最后一个artilce的margin要减少
     &:last-child 
       margin-bottom: 15px
     header
@@ -78,6 +78,7 @@ export default {
       color: #34495e
     ul.tags
       font-size: 0
+      margin-top: 4px
       i.icon-tag1
         color: #333
         font-size: 16px
@@ -90,5 +91,11 @@ export default {
       a.continue
         font-size: 14px
         color: $green
-        
+//当屏幕宽度<768px时，间距要适当减小
+@media screen and (max-width: 768px)
+  .articles-list
+    article
+      header
+        .createTime
+          margin: 0
 </style>
