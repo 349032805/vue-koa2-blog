@@ -5,7 +5,7 @@
         <h1 class="title"><router-link :to="'/articles/' + item._id" class="hover-underline">{{ item.title }}</router-link></h1>
         <p class="createTime">{{ item.createTime }}</p>
       </header>
-      <p class="markdown" v-html="parser(item.abstract)"></p>
+      <p class="markdown" v-html="parser(item.abstract || '')"></p>
       <ul class="tags">
         <i class="iconfont icon-tag1"></i>
         <li v-for="tag in item.tags">{{ tag.name }}</li>
@@ -14,23 +14,31 @@
         <router-link :to="'/articles/' + item._id" class="continue hover-underline">...read more</router-link>
       </footer>
     </article>
+    <p v-show="load" class="load">加载中...</p>
   </div> 
 </template>
 
 <script>
 import api from '../../api';
 import marked from '../../assets/js/marked.js';
+import Loading from 'components/Loading/Loading';
 
 export default {
   data(){
     return {
-      articles: []
+      articles: [],
+      page: 1,  //默认加载第一页
+      limit: 5, //一次加载五条数据
+      pages: -1, //总页数
+      load: false,
+      end: false   //判断请求是否完成，只有当前请求发送完，才能发送下一个请求
     }
   },
   created(){
-     api.getArticlesByPage(1, 5)
+     api.getArticlesByPage(this.page, this.limit)
         .then(res => {
           if(res.data.code === 200){
+            this.pages = Math.ceil(res.data.total/this.limit);
             this.articles = res.data.data.slice(0);
           }
         })
@@ -38,6 +46,40 @@ export default {
           console.log('获取文章失败！');
           alert('网络出现问题！');
         });
+  },
+  mounted(){
+    document.addEventListener('scroll', () => {
+
+        let scrollTop = document.body.scrollTop;
+        let offsetHeight = document.body.offsetHeight;
+        let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        if(offsetHeight + scrollTop + 5 >= scrollHeight){
+          
+                if(this.end === false){
+                      this.end = true;
+                      if(this.page >= this.pages){
+                        this.load = false;
+                        return;
+                      }
+                      this.load = true;
+                      this.page = this.page + 1;
+                      api.getArticlesByPage(this.page, this.limit)
+                      .then(res => {
+                        if(res.data.code === 200){
+                          res.data.data.slice(0).forEach(o => {
+                            this.articles.push(o);
+                          });
+                          this.load = true;
+                          this.end = false;
+                        }
+                      })
+                      .catch(err => {
+                        console.log('获取文章失败！');
+                        alert('网络出现问题！');
+                      });
+               } 
+        }
+    });
   },
   methods: {
     //解析markdown
@@ -60,7 +102,7 @@ export default {
     padding-bottom: 3px
     //最后一个artilce的margin要减少
     &:last-child 
-      margin-bottom: 15px
+      margin-bottom: 0px
     header
       text-align: left
       .title
@@ -92,6 +134,9 @@ export default {
       a.continue
         font-size: 14px
         color: $green
+  p.load
+    text-align: center
+    color: #ddd
 //当屏幕宽度<768px时，间距要适当减小
 @media screen and (max-width: 768px)
   .articles-list
