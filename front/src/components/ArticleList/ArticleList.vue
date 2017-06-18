@@ -15,6 +15,7 @@
       </footer>
     </article>
     <p v-show="load" class="load">加载中...</p>
+    <div class="scrollToTop" v-show="articles.length > limit"><a @click="scrollToTop">top</a></div>
   </div> 
 </template>
 
@@ -22,6 +23,7 @@
 import api from '../../api';
 import marked from '../../assets/js/marked.js';
 import Loading from 'components/Loading/Loading';
+import VueScrollTo from 'Vue-scrollto';
 
 export default {
   data(){
@@ -30,7 +32,7 @@ export default {
       page: 1,  //默认加载第一页
       limit: 5, //一次加载五条数据
       pages: -1, //总页数
-      load: false,
+      load: false,  //显示加载中
       end: false   //判断请求是否完成，只有当前请求发送完，才能发送下一个请求
     }
   },
@@ -49,35 +51,34 @@ export default {
   },
   mounted(){
     document.addEventListener('scroll', () => {
-
-        let scrollTop = document.body.scrollTop;
-        let offsetHeight = document.body.offsetHeight;
-        let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-        if(offsetHeight + scrollTop + 5 >= scrollHeight){
+        let scrollTop = document.body.scrollTop;      //获取当前滚动条的高度
+        let offsetHeight = document.body.offsetHeight;    //获取可视区的高度
+        let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight); //获取总内容高度
+        if(offsetHeight + scrollTop + 5 >= scrollHeight){  
           
-                if(this.end === false){
-                      this.end = true;
-                      if(this.page >= this.pages){
+                if(this.end === false){      //先当前是否在处理发送的请求，只有this.end===fasle的时候才能发送请求
+                      this.end = true;                 
+                      if(this.page >= this.pages){     //判断当前页数是否>总页数
                         this.load = false;
                         return;
                       }
-                      this.load = true;
-                      this.page = this.page + 1;
+                      this.load = true;        //显示“加载中...”
+                      this.page = this.page + 1;           //当前页数加一， 再请求
                       api.getArticlesByPage(this.page, this.limit)
                       .then(res => {
                         if(res.data.code === 200){
-                          res.data.data.slice(0).forEach(o => {
-                            this.articles.push(o);
+                          this.load = true;     //隐藏掉“加载中”
+                          this.end = false;     //可以发送下一个请求了
+                          this.$nextTick(() => {
+                              this.articles = this.articles.concat(res.data.data.slice(0));
                           });
-                          this.load = true;
-                          this.end = false;
                         }
                       })
                       .catch(err => {
                         console.log('获取文章失败！');
                         alert('网络出现问题！');
                       });
-               } 
+                 } 
         }
     });
   },
@@ -85,6 +86,9 @@ export default {
     //解析markdown
     parser(value){
       return marked(value);
+    },
+    scrollToTop(){
+      VueScrollTo.scrollTo(document.getElementById('app'));
     }
   }
 }
@@ -134,9 +138,26 @@ export default {
       a.continue
         font-size: 14px
         color: $green
+  //加载中....
   p.load
-    text-align: center
     color: #ddd
+    text-align: center
+    margin-bottom: 30px
+  div.scrollToTop
+    position: fixed
+    right: 20px
+    bottom: 20px
+    cursor: pointer
+    a 
+      display: block
+      text-align: center
+      line-height: 40px
+      width: 40px
+      height: 40px
+      border-radius: 50%
+      border: 1px solid #f1f1f1
+      box-shadow: 0 0 5px #f1f1f1
+      color: #909090
 //当屏幕宽度<768px时，间距要适当减小
 @media screen and (max-width: 768px)
   .articles-list
@@ -144,4 +165,8 @@ export default {
       header
         .createTime
           margin: 0
+@media screen and (max-width: 480px)
+  .articles-list
+    div.scrollToTop
+      display: none
 </style>

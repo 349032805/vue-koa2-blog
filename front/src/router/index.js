@@ -9,8 +9,16 @@ const Archives = resolve => require(['components/Archives/Archives'], resolve);
 const About = resolve => require(['components/About/About'], resolve);
 const Article = resolve => require(['components/Article/Article'], resolve);
 
-export default new Router({
+const router = new Router({
   mode: 'history',
+  scrollBehavior(to, from, savedPosition){
+    if(savedPosition){
+      return savedPosition;
+    }
+    if(to.meta.scrollTop === true){
+      return { x: 0, y: 0 };
+    }
+  },
   routes: [
     {
       path: '/articles',
@@ -18,7 +26,8 @@ export default new Router({
     },
     {
       path: '/articles/:id',
-      component: Article
+      component: Article,
+      meta: { scrollTop: true }      //该路由必须滚动到顶部
     },
     {
       path: '/tags',
@@ -37,4 +46,6 @@ export default new Router({
       redirect: '/articles'
     }
   ]
-})
+});
+
+export default router;

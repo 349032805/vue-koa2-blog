@@ -321,7 +321,7 @@ export default {
 @import '../../../assets/stylus/code.styl';
 
 .CodeMirror-fullscreen
-        background-color: #F9F9F5
+        background-color: #fff
 .CodeMirror, .CodeMirror-scroll
 	    min-height: 400px
 </style>

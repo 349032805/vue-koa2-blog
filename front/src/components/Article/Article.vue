@@ -143,6 +143,8 @@ export default {
       .title
         font-size: 2em
         margin-bottom: 0.8em
+        word-wrap:break-word;
+        white-space: pre-wrap;
       ul.tags
         font-size: 0
         margin-bottom: 20px

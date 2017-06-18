@@ -21,6 +21,7 @@ axios.interceptors.response.use((response) => {
         switch(error.response.status){
             case 401:
                 store.commit('TOKEN_DELETE'); //可能是token失效，清楚它
+                store.commit('RESET');
                 router.replace({ //跳转到登录页面
                     path: '/login',
                     query: { redirect: router.currentRoute.fullPath } // 将跳转的路由path作为参数，登录成功后跳转到该路由
