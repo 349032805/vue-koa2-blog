@@ -2,7 +2,7 @@
   "name": "front",
   "version": "1.0.0",
   "description": "vue-koa-blog-front",
-  "author": "林烁圭 <525136628@qq.com>",
+  "author": "twinkle",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

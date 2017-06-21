@@ -18,29 +18,25 @@ const state = {
 };
 
 const mutations = {
-    //用户登出
-    [types.RESET](state){
-        state.currentArticle._id = -1;
-        state.currentArticle.index = -1;
-        state.currentArticle.abstract = '';
-        state.currentArticle.content = '';
-        state.currentArticle.title = '';
-        state.currentArticle.tags = [];
-        state.currentArticle.publish = false;
-        state.currentArticle.save = false;
-        state.allArticles = [];
-        state.allTags = [];
-    },
-    //创建标签，并push进currentArticle.tags里面-----缺
+     //用户登出
+     [types.RESET](state){
+         state.currentArticle._id = -1;
+         state.currentArticle.index = -1;
+         state.currentArticle.abstract = '';
+         state.currentArticle.content = '';
+         state.currentArticle.title = '';
+         state.currentArticle.tags = [];
+         state.currentArticle.publish = false;
+         state.currentArticle.save = false;
+         state.allArticles = [];
+         state.allTags = [];
+     },
+     //创建标签，并push进currentArticle.tags里面
      [types.TAG_CREATE](state, tag){
          state.currentArticle.tags.push(tag);
          if(!state.allTags.some(o => o._id === tag._id)){
             state.allTags.push(tag);
          }
-        //  if(state.currentArticle._id !== -1){ //如果当前存在文章
-        //      console.log(22222);
-        //      state.allArticles[state.currentArticle.index].tags.push(tag);
-        //  }
      },
      //删除标签,index是要删除tag在currentArticle.tags里面的索引-----缺
      [types.TAG_DELETE](state, id){
@@ -65,7 +61,6 @@ const mutations = {
      },
      //修改文章----------直接修改新建文章,或者点击'编辑进来的文章'
      [types.ARTICLE_MODIFY](state, { article, index }){
-         //这里需不需要待看
          state.currentArticle._id = article._id
          state.currentArticle.title = article.title;
          state.currentArticle.abstract = article.abstract;
@@ -78,22 +73,12 @@ const mutations = {
              state.currentArticle.index = index;
          }
 
-         //能根据index查找吗,而不用find
         let nowArticle = state.allArticles[state.currentArticle.index];
         nowArticle.title = article.title;
         nowArticle.abstract = article.abstract;
         nowArticle.content = article.content;
         nowArticle.tags = article.tags;
         nowArticle.lastEditTime = article.lastEditTime;
-
-        // 修改文章同时也要修改allArticles这个数组
-        // let nowArticle = state.allArticles.find(o => o._id === article._id)
-        // if(nowArticle){
-        //     nowArticle.title = article.title;
-        //     nowArticle.content = article.content;
-        //     nowArticle.tags = article.tags;
-        //     nowArticle.lastEditTime = article.lastEditTime;
-        // }
      },
      //创建文章并保存,多types.ARTICLE_MODIFY一步就是unshift进allArticles
      [types.ARTICLE_CREATE](state, article){

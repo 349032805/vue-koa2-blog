@@ -60,7 +60,7 @@ export default {
     beforeRouteEnter(to, from, next){
         let index = to.query.index;
         if(to.path === "/admin/article" && from.path === "/admin/list" && index >= 0){
-            console.log('我是来编辑文章的！');
+            //console.log('我是来编辑文章的！');
             next(vm => {
                 let title = vm.allArticles[index].title;
                 let content = vm.allArticles[index].content;

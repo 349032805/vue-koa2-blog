@@ -2,7 +2,7 @@
   "name": "admin",
   "version": "1.0.0",
   "description": "blog-admin",
-  "author": "sinner77 <525136628@qq.com>",
+  "author": "twinkle",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

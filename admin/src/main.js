@@ -24,7 +24,7 @@ Vue.prototype.$confirm = (message, title, options) => {
   return new Confirm(message, title, options);
 };
 
-Vue.config.productionTip = true
+Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
@@ -33,4 +33,4 @@ new Vue({
   store,
   template: '<App/>',
   components: { App }
-})
+});

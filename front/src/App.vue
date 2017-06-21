@@ -2,7 +2,7 @@
     <div id="app">
         <v-header></v-header>
         <main class="container">
-            <transition name="fade">
+            <transition name="fade" mode="out-in">
                 <keep-alive><router-view></router-view></keep-alive>
             </transition>
         </main>
@@ -22,11 +22,17 @@ export default {
 }
 </script>
 <style lang="stylus">
-@import 'assets/stylus/markdown.styl';
-@import 'assets/stylus/code.styl';
+@import 'assets/stylus/markdown.styl'
+@import 'assets/stylus/code.styl'
 </style>
+
+
 <style lang="stylus" scoped>
 @import 'assets/stylus/_setting.styl';
+.fade-transition
+  transition: opacity .2s ease
+.fade-enter, .fade-leave
+  opacity: 0;
 #app
     height: 100%
     .container

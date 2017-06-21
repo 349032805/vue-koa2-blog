@@ -56,8 +56,9 @@ export default {
 <style lang="stylus" scoped>
 @import '../../assets/stylus/_setting.styl';
 .archives-list
-  max-width: 900px
+  max-width: 850px
   margin: 0 auto
+  padding: 15px
   h2
     font-size: 22px
     font-weight: 700
