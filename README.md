@@ -219,7 +219,8 @@ let config = {
 };
 ```
 github地址: https://github.com/sinner77/vue-koa2-blog
-
+[受启发的项目](http://chuckliu.me/#!/posts)
+[受启发的项目](http://imhjm.com/)
 
 
 
