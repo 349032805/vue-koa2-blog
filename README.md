@@ -1,13 +1,13 @@
-﻿# vue-koa2-blog admin篇
+﻿# vue-koa2-blog server篇
 
 > vue2,koa2和mongo搭建的单用户博客
 
 后续还有**front篇**，**admin篇**还有**部署篇**。为什么写这些文章呢?主要把我在这个项目碰到的一些小坑，难题总结出来，方便日后自己去查阅。（高手还是无视我这么小儿科的东西吧）为了加强练习，该自己写的代码，坚决自己写，能不引用第三方的库和组件绝不引用，这个过程确实能学习到不少东西。
 
 适合人群：想练习vue,vuex,koa2以及想熟悉ES6语法的人。
-[前台](http://139.199.160.102)
-[后台](http://139.199.160.102:8888)
-账号和密码都是admin
+[front体验](http://139.199.160.102)
+[admin体验](http://139.199.160.102:8888),账号和密码都是admin,请尽量不要删除或修改文章   
+[vue-koa2-blog admin篇](https://github.com/sinner77/vue-koa2-blog/tree/master/admin)
 
 
 ## 展示
@@ -218,8 +218,8 @@ let config = {
    }
 };
 ```
-github地址: https://github.com/sinner77/vue-koa2-blog
-[受启发的项目](http://chuckliu.me/#!/posts)
+github地址: https://github.com/sinner77/vue-koa2-blog   
+[受启发的项目](http://chuckliu.me/#!/posts)   
 [受启发的项目](http://imhjm.com/)
 
 
