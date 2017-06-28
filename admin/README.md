@@ -107,10 +107,11 @@ markdown编译器选用的是simplemde,常见的功能例如各种快捷键，�
 对了,hljs在官网可以定制它的语言包，可以只注册需要高亮的语言，这样就不至于js文件过大。
 
 ## 学习资料
-[koa2实现基本token的登录注册](https://github.com/sinner77/vue-koa2-login)<br/>
-[打造 Vue.js 可复用组件](http://www.jianshu.com/p/79a37137e45d)<br/>
-[vue中动态绑定图片的问题](http://www.cnblogs.com/hongmaju/p/6877090.html)<br/>
+
+[koa2实现基本token的登录注册](https://github.com/sinner77/vue-koa2-login)   <br/>
+[打造 Vue.js 可复用组件](http://www.jianshu.com/p/79a37137e45d)   <br/>
+[vue中动态绑定图片的问题](http://www.cnblogs.com/hongmaju/p/6877090.html)   <br/>
 [hljs学习](http://blog.csdn.net/spy19881201/article/details/38866033)<br/>
-[防抖动函数](http://jinlong.github.io/2016/04/24/Debouncing-and-Throttling-Explained-Through-Examples/)<br/>
-[容易理解的抖动和节流函数](https://segmentfault.com/a/1190000005926579)<br/>
+[防抖动函数](http://jinlong.github.io/2016/04/24/Debouncing-and-Throttling-Explained-Through-Examples/)   <br/>
+[容易理解的抖动和节流函数](https://segmentfault.com/a/1190000005926579)   <br/>
 [如何优雅的选择字体(font-family)](https://segmentfault.com/a/1190000006110417)
